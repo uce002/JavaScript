@@ -87,3 +87,28 @@ document.getElementById("submitInput").onclick = function() {
     username = document.getElementById("userInput").value;
     document.getElementById("userInput-p").textContent = `Good evening ${username}.`;
 }
+
+
+// 5 TYPE CONVERSION
+document.getElementById("typeConversion-h1").textContent = "5. Type Conversion";
+
+// type conversion = change the datatype of a value to another (strings, numbers, booleans)
+// if you need to use userinput (string) for math you need to convert it to a number
+
+//let pizzaPrice = window.prompt("How much is a medium pizza?");
+pizzaPrice = Number(pizzaPrice);
+pizzaPrice += 1;
+
+console.log(pizzaPrice, typeof age);
+
+let tcX = "0"; //can't convert string to number pizza shows as NaN with the type being number
+let tcY = "0"; //can convert numbers to strings
+let tcZ = "0"; //will only be false if empty, otherwise true. USEFUL FOR CHECKING WHETHER USER INPUT IS EMPTY AND TELL THEM TO ENTER SOMETHING
+
+tcX = Number(tcX);
+tcY = String(tcY);
+tcZ = Boolean(tcZ);
+
+console.log(tcX, typeof tcX);
+console.log(tcY, typeof tcY);
+console.log(tcZ, typeof tcZ);
