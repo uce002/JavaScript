@@ -5,13 +5,13 @@ console.log('i like pizza');
 
 window.alert('This is an alert!');
 */
-
 document.getElementById(`myH1`).textContent = `1. Basics`;
 document.getElementById("myP").textContent = "I like pizza";
 
-// 2 VARIABLES
-/* variable = a container that stores a value. It behaves as if it were the value it contains
 
+// 2 VARIABLES
+
+/* variable = a container that stores a value. It behaves as if it were the value it contains
 1. declaration =    let x;
 2. assignment  =    x = 100; */
 
@@ -40,3 +40,34 @@ document.getElementById("variable-h1").textContent = "2. Variables";
 document.getElementById("variable-p1").textContent = `Your name is ${fullName}`;
 document.getElementById("variable-p2").textContent = `Your age is ${age}`;
 document.getElementById("variable-p3").textContent = `${fullName} is a student: ${isStudent}`;
+
+
+// 3 ARITHMETIC OPERATORS
+
+document.getElementById("arithmetic-h1").textContent = "3. Arithmetic Operators";
+
+/* arithmetic operators = operands (values, variables etc)
+                          operators (+ - * /)
+                          e.g. 11 = x + 5 */
+let students = 30;
+
+//students = students + 1; - * / etc
+//students = students ** 2; ** is exponent (to the power of)
+// let extraStudents = students % 3;  % is modulus. the remainder after being divided by 3 in this case 1 (31/3 = 0 remainder 1)
+
+// augmented assignment operators
+//students += 1;  %= **= -= etc
+
+// increment and decrement (by 1, helpful in a loop)
+//students++;
+//students --;
+
+/* operator precedence
+   1. ().    brackets
+   2. **.    exponent
+   3. * / %. multiplication & division & modulus
+   4. + -.   addition & subtraction
+*/
+let result = 1 + 2 * 3 + 4 ** 2;
+
+console.log(result);
