@@ -96,10 +96,10 @@ document.getElementById("typeConversion-h1").textContent = "5. Type Conversion";
 // if you need to use userinput (string) for math you need to convert it to a number
 
 //let pizzaPrice = window.prompt("How much is a medium pizza?");
-pizzaPrice = Number(pizzaPrice);
-pizzaPrice += 1;
+//pizzaPrice = Number(pizzaPrice);
+//pizzaPrice += 1;
 
-console.log(pizzaPrice, typeof age);
+//console.log(pizzaPrice, typeof age);
 
 let tcX = "0"; //can't convert string to number pizza shows as NaN with the type being number
 let tcY = "0"; //can convert numbers to strings
@@ -112,3 +112,19 @@ tcZ = Boolean(tcZ);
 console.log(tcX, typeof tcX);
 console.log(tcY, typeof tcY);
 console.log(tcZ, typeof tcZ);
+
+
+// 6 CONSTANTS
+document.getElementById("constants-h1").textContent = "6. Constants";
+
+// const a variable that can't be changed
+const PI = 3.14159; // when using a const capitalise primitive data types (numbers, booleans), not strings
+let radius;
+let circumference;
+
+document.getElementById("radiusSubmit").onclick = function() {
+    radius = document.getElementById("radiusInput").value;
+    radius = Number(radius);
+    circumference = 2 * PI * radius
+    document.getElementById("circumf-p").textContent = circumference + " cm";
+}
