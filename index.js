@@ -1,5 +1,4 @@
 // 1 BASICS
-
 /*console.log('Hello');
 console.log('i like pizza');
 
@@ -10,7 +9,6 @@ document.getElementById("myP").textContent = "I like pizza";
 
 
 // 2 VARIABLES
-
 /* variable = a container that stores a value. It behaves as if it were the value it contains
 1. declaration =    let x;
 2. assignment  =    x = 100; */
@@ -43,7 +41,6 @@ document.getElementById("variable-p3").textContent = `${fullName} is a student: 
 
 
 // 3 ARITHMETIC OPERATORS
-
 document.getElementById("arithmetic-h1").textContent = "3. Arithmetic Operators";
 
 /* arithmetic operators = operands (values, variables etc)
@@ -53,14 +50,15 @@ let students = 30;
 
 //students = students + 1; - * / etc
 //students = students ** 2; ** is exponent (to the power of)
-// let extraStudents = students % 3;  % is modulus. the remainder after being divided by 3 in this case 1 (31/3 = 0 remainder 1)
+//let extraStudents = students % 3;  % is modulus. the remainder after being divided by 3 in this case 1 (31/3 = 0 remainder 1)
 
 // augmented assignment operators
 //students += 1;  %= **= -= etc
 
 // increment and decrement (by 1, helpful in a loop)
-//students++;
+students++;
 //students --;
+let extraStudents = students % 3; //put line 53 here to show the remainder (modulus)
 
 /* operator precedence
    1. ().    brackets
@@ -69,5 +67,23 @@ let students = 30;
    4. + -.   addition & subtraction
 */
 let result = 1 + 2 * 3 + 4 ** 2;
-
 console.log(result);
+console.log(students);
+console.log(extraStudents);
+
+
+// 4 ACCEPT USER INPUT
+document.getElementById("userInput-h1").textContent = "4. Accept User Input";
+
+/* 1. Easy way = window prompt
+   2. Professional way = HTML textbox */
+
+//let username = window.prompt("What's your username");
+//console.log(username);
+
+let username;
+
+document.getElementById("submitInput").onclick = function() {
+    username = document.getElementById("userInput").value;
+    document.getElementById("userInput-p").textContent = `Good evening ${username}.`;
+}
