@@ -177,3 +177,27 @@ let max = Math.max(maxX, maxY, maxZ);
 let min = Math.max(maxX, maxY, maxZ);
 console.log(mathZ);
 console.log(max);
+
+
+// 9 RANDOM NUMBER GENERATOR
+document.getElementById("rng-h1").textContent = "9. Random Number Generator";
+
+//let randomNum = Math.floor(Math.random() * 6) + 1; // random number 0-6 inclusive (because of +1) rounded down
+//console.log(randomNum);
+
+const practiceMin = 50;
+const practiceMax = 100;
+
+let randomNum2 = Math.floor(Math.random() * (practiceMax - practiceMin)) + practiceMin; //random number from 50-99
+console.log(randomNum2);
+
+const rngLabel = document.getElementById("rngLabel");
+const rngBtn = document.getElementById("rngBtn");
+const rngMin = 1;
+const rngMax = 6;
+let RandomNum3;
+
+rngBtn.onclick = function() {
+    RandomNum3 = Math.floor(Math.random() * rngMax) + rngMin;
+    rngLabel.textContent = RandomNum3;
+}
