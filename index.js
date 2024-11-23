@@ -151,3 +151,29 @@ resetBtn.onclick = function() {
     count = 0;
     countLabel.textContent = count;
 }
+
+
+// 8 MATH OBJECT
+document.getElementById("mathObject-h1").textContent = "8. Math Object";
+
+// Math = built-in object that provides a collection of properties (console.log(Math.PI);) and methods (below)
+let mathX = 3.21;
+let mathY = 2;
+let mathZ; 
+
+let maxX = 2;
+let maxY = 5;
+let maxZ = 3;
+
+mathZ = Math.round(mathX); //ceil(mathX) = always round up
+//mathZ = Math.floor(mathX); //change mathX to 3.99 to show this (floor always rounds down)
+//mathZ = Math.ceil(mathX); //ceiling always rounds up
+//mathZ = Math.trunc(mathX); //truncate gets rid of all numbers after the decimal point
+//mathZ = Math.pow(mathX, mathY); //change x to 3 and y to 2. x is the number y is the power
+//mathZ = Math.sqrt(mathX); // sqaure root
+//mathZ = Math.abs(mathX); //absolute gets rid of the - sign and makes the value positive
+
+let max = Math.max(maxX, maxY, maxZ);
+let min = Math.max(maxX, maxY, maxZ);
+console.log(mathZ);
+console.log(max);
