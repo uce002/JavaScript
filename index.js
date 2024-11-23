@@ -201,3 +201,61 @@ rngBtn.onclick = function() {
     RandomNum3 = Math.floor(Math.random() * rngMax) + rngMin;
     rngLabel.textContent = RandomNum3;
 }
+
+
+// 10 IF STATEMENTS
+document.getElementById("ifStatements-h1").textContent = "10. If Statements";
+
+// if statements = if a condition is true, exexcute some code. if not, do something else
+
+//using boolean in an if statement
+let isStudent2 = false;
+if(isStudent2) {
+    console.log("Good evening student");
+} else {
+    console.log("Good evening sir");
+}
+
+let isAge = 15;
+let hasLicense = false 
+
+//nested if statement
+if(isAge >= 16) {
+    console.log("You are old enough to drive");
+
+    if(hasLicense) {
+        console.log("You have your license");
+    } else {
+        console.log("You don't have your license yet");
+    }
+}
+else {
+    console.log("You must be 16+ to have a license");
+}
+
+//else if statement. order is important (age>=100 has to be first as >=18 will execute first if it's at the top)
+let isAge2;
+
+const ifSInput = document.getElementById("ifSInput");
+const ifSBtn = document.getElementById("ifSBtn");
+const resultP = document.getElementById("resultP")
+
+ifSBtn.onclick = function() {
+    isAge2 = ifSInput.value;
+    isAge2 = Number(isAge2)
+    if(isAge2 >= 100) {
+        resultP.textContent = "You are too old to enter this site";
+    }
+    else if(isAge2 == 0) { //== compare values. = is assignment
+        resultP.textContent = "You can't enter. You a baby bruh";
+    }
+    else if(isAge2 >= 18) {
+        resultP.textContent = "You are old enough to enter this site";
+    } 
+    else if (isAge2 < 0) {
+        resultP.textContent = "Your age can't be below 0";
+    }
+    else {
+        resultP.textContent = "You must be 18+ to enter this site";
+    }
+}
