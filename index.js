@@ -262,7 +262,7 @@ ifSBtn.onclick = function() {
 
 
 // 11 CHECKED PROPERTY
-document.getElementById("cp-h1").textContent = "11. Checked Property";
+document.getElementById("checkedProperty-h1").textContent = "11. Checked Property";
 
 // checked = property that determines the checked state of a HTML checkbox or radio button. 
 const checkBox = document.getElementById("checkBox");
@@ -293,3 +293,21 @@ cpSubmit.onclick = function() {
         paymentResult.textContent = "You must select a payment type";
     }
 }
+
+
+//12 TERNARY OPERATOR
+document.getElementById("ternaryOperator-h1").textContent = "12. Ternary Operator";
+
+/* shortcut to if{} and else{} statements, helps to assign a variable based on a condition
+   condition ? codeIfTrue : codeIfFalse; */
+let time = 16;
+let greeting = time < 12 ? "Good morning" : "Good afternoon";
+console.log(greeting);
+
+let ternaryIsStudent = false;
+let message = ternaryIsStudent ? "You are a student" : "You are NOT a student";
+console.log(message);
+
+let purchaseAmount = 125;
+let discount = purchaseAmount >= 100 ? 10 : 0; //is someones purchase over 100. if so add a 10% discount
+console.log(`You're total is £${purchaseAmount - purchaseAmount * (discount/100)}`) // 10/100 = 0.1. 125 x 0.1 = 12.5 (10%) 125 - 12.5
