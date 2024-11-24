@@ -311,3 +311,57 @@ console.log(message);
 let purchaseAmount = 125;
 let discount = purchaseAmount >= 100 ? 10 : 0; //is someones purchase over 100. if so add a 10% discount
 console.log(`You're total is £${purchaseAmount - purchaseAmount * (discount/100)}`) // 10/100 = 0.1. 125 x 0.1 = 12.5 (10%) 125 - 12.5
+
+
+// 13 SWITCHES
+document.getElementById("switches-h1").textContent = "13. Switches";
+
+// can be an efficient replacement to many else if statements
+let day = 1;
+switch(day) {
+    case 1:
+        console.log("It's Monday");
+        break; //to stop executing this code and move on
+    case 2:
+        console.log("It's Tuesday");
+        break;
+    case 3:
+        console.log("It's Wednesday");
+        break;
+    case 4:
+        console.log("It's Thursday");
+        break;
+    case 5:
+        console.log("It's Friday");
+        break;
+    case 6:
+        console.log("It's Saturday");
+        break;
+    case 7:
+        console.log("It's Sunday");
+        break;
+    default:
+        console.log(`${day} is not a day`);
+        break;
+}
+
+let testScore = 62;
+let letterGrade;
+switch(true) {
+    case testScore >= 90: //if this is true, grade is A
+        letterGrade = "A";
+        break;
+    case testScore >=80:
+        letterGrade = "B";
+        break;
+    case testScore >=70:
+        letterGrade = "C";
+        break;
+    case testScore >=60:
+        letterGrade = "D";
+        break;
+    default:
+        letterGrade = "F";
+}
+
+console.log(letterGrade);
