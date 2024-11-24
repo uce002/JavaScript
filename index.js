@@ -259,3 +259,37 @@ ifSBtn.onclick = function() {
         resultP.textContent = "You must be 18+ to enter this site";
     }
 }
+
+
+// 11 CHECKED PROPERTY
+document.getElementById("cp-h1").textContent = "11. Checked Property";
+
+// checked = property that determines the checked state of a HTML checkbox or radio button. 
+const checkBox = document.getElementById("checkBox");
+const visaBtn = document.getElementById("visaBtn");
+const masterCardBtn = document.getElementById("masterCardBtn");
+const payPalBtn = document.getElementById("payPalBtn");
+const cpSubmit = document.getElementById("cpSubmit");
+const subscribeResult = document.getElementById("subscribeResult");
+const paymentResult = document.getElementById("paymentResult");
+
+cpSubmit.onclick = function() {
+    if(checkBox.checked) {
+        subscribeResult.textContent = "Thanks for subscribing";
+    } else {
+        subscribeResult.textContent = "You aren't subscribed";
+    }
+
+    if(visaBtn.checked) {
+        paymentResult.textContent = "You are paying with Visa";
+    } 
+    else if(masterCardBtn.checked) {
+        paymentResult.textContent = "You are paying with MasterCard";
+    }
+    else if(payPalBtn.checked) {
+        paymentResult.textContent = "You are paying with PayPal";
+    }
+    else {
+        paymentResult.textContent = "You must select a payment type";
+    }
+}
