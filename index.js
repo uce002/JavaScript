@@ -365,3 +365,40 @@ switch(true) {
 }
 
 console.log(letterGrade);
+
+
+// 14 STRING METHODS
+document.getElementById("stringMethods-h1").textContent = "14. String Methods";
+
+//string methods = allow you to mainpulate and work with text (strings)
+let userName = "uce mcjuce";
+
+console.log(userName.charAt(1)); //index starts at 0 (u).
+console.log(userName.indexOf("u")) //find the first instance of u (0)
+console.log(userName.lastIndexOf("u")) //find the last instance of u (7)
+console.log(userName.length); //length of string 10 characters including space
+//console.log(userName.trim()); // trims any whitespace (space before or after string, not in between)
+//console.log(userName.toUpperCase()); // make all characters uppercase
+//console.log(userName.toLowerCase());
+//console.log(userName(repeat(3))); //repeat 3 times
+console.log(userName.startsWith("s")); //returns boolean. false, uce doesn't start with s. there's .endsWidth aswell
+
+//below uses above with an if statement to check if username has a space which isn't usually allowed
+let userName2 = " uce mcjuce";
+let result2 = userName2.startsWith(" "); //.includes(" ") to check if there's a space like there is in mine. no spaces allowed in a username
+if(result2) {
+    console.log("Your username can't begin with ` `"); //can't include for .include
+} else {
+    console.log(userName2);
+}
+
+let phoneNumber = "123-456-7890";
+phoneNumber = phoneNumber.replaceAll("-", "");
+console.log(phoneNumber);
+
+//phoneNumber = phoneNumber.padStart(15, "0"); //padEnd aswell. pad the string with 0's (anything) until it's 15 (or however) many characters long
+
+
+// 15 STRING SLICING
+document.getElementById("stringSlicing-h1").textContent = "15. String Slicing";
+
