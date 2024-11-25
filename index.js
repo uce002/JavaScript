@@ -481,3 +481,26 @@ if(!isSunny) {
 } else {
     console.log("it's sunny in philadelphia");
 }
+
+
+// 18 STRICT EQUALITY
+document.getElementById("strictEquality-h1").textContent = "18. Strict Equality";
+
+/*  = assignment operator
+    == comparison operator (compare is values are equal)
+    === strict equality operator (compare if values and datatype are equal)
+    != inequality operator
+    !== strict inequality operator
+*/
+const PI2 = 3.14;
+if(PI2 === "3.14") { //== returns true. === returns false as it's a string not a number
+    console.log("thats pi");
+} else {
+    console.log("that isnt pi");
+}
+
+if(PI2 !== 3.14) { //if value isn't 3.14 number data type its not pi
+    console.log("thats not PI")
+} else {
+    console.log("thats pi"); //PI2 !== 3.14 is false, meaning that value is PI
+}
