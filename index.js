@@ -402,3 +402,31 @@ console.log(phoneNumber);
 // 15 STRING SLICING
 document.getElementById("stringSlicing-h1").textContent = "15. String Slicing";
 
+// string slicing = creating a substring from a portion of another string. string.slice(start, end)
+const ssfFullName = "Uceicle McJuceicles";
+
+// FROM HERE CHANGE ssFullName BACK TO Uce McJuce
+//let ssFirstName = ssfFullName.slice(0, 3); //ending index is exclusive. if it was 0, 2 it would be uc because 3 is excluded
+//let ssLastName = ssfFullName.slice(4); //if you're going to the end you don't an ending index
+//console.log(ssFirstName);
+//console.log(ssLastName);
+
+//let firstChar = ssfFullName.slice(0, 1);
+//let lastChar = ssfFullName.slice(-1); // - index starts at the end. -2 is c, -3 = u etc
+//console.log(firstChar);
+//console.log(lastChar);
+
+// use index of to find a space, anything before space print as firstname, anything after is lastname
+let ssFirstName2 = ssfFullName.slice(0, ssfFullName.indexOf(" ")); //from index 0 (U) to index 8 (index of the space)
+let ssLastName2 = ssfFullName.slice(ssfFullName.indexOf(" ") + 1); //from index 8 + 1 (to not include the space) to the end
+
+console.log(ssFirstName2);
+console.log(ssLastName2);
+
+const ssEmail = "ucemcjuce@gmail.com";
+
+let ssUsername = ssEmail.slice(0, ssEmail.indexOf("@"));
+let ssExtension = ssEmail.slice(ssEmail.indexOf("@") + 1);
+
+console.log(ssUsername);
+console.log(ssExtension);
