@@ -430,3 +430,27 @@ let ssExtension = ssEmail.slice(ssEmail.indexOf("@") + 1);
 
 console.log(ssUsername);
 console.log(ssExtension);
+
+
+// 16 METHOD CHAINING
+document.getElementById("methodChaining-h1").textContent = "16. Method Chaining";
+
+// method chaining = calling one method after another in one continuous line of code
+// both programs will trim any whitespace, find the first letter make it upper case and make everything after it lowercase
+
+let mcUsername = window.prompt("Enter your username: ");
+
+// NO METHOD CHAINING
+mcUsername = mcUsername.trim();
+let nmcLetter = mcUsername.charAt(0);
+nmcLetter = nmcLetter.toUpperCase();
+
+let nmcExtraChars = mcUsername.slice(1);
+nmcExtraChars = nmcExtraChars.toLowerCase();
+mcUsername = nmcLetter + nmcExtraChars;
+
+console.log(mcUsername);
+
+// METHOD CHAINING
+mcUsername = mcUsername.trim().charAt(0).toUpperCase() + mcUsername.trim().slice(1).toLowerCase();
+console.log(mcUsername);
