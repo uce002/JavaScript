@@ -454,3 +454,30 @@ console.log(mcUsername);
 // METHOD CHAINING
 mcUsername = mcUsername.trim().charAt(0).toUpperCase() + mcUsername.trim().slice(1).toLowerCase();
 console.log(mcUsername);
+
+
+// 17 LOGICAL OPERATORS
+document.getElementById("logicalOperators-h1").textContent = "17. Logical Operators";
+
+// logical operators = used to combine or mainpulate boolean values (true or false)
+// AND = && (both need to be true)    OR = || (at least one has to be true (one or more))    NOT = !
+const andTemp = 31;
+if(andTemp > 0 && andTemp <= 30) {
+    console.log("The weather is good");
+} else {
+    console.log("The weather is bad");
+}
+
+const ifTemp = 20;
+if(ifTemp <= 0 || ifTemp > 30) {
+    console.log("Weather is bad")
+} else {
+    console.log("weather is good")
+}
+
+const isSunny = true;
+if(!isSunny) {
+    console.log("it's cloudy");
+} else {
+    console.log("it's sunny in philadelphia");
+}
