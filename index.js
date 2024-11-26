@@ -639,3 +639,26 @@ function isValidEmail(fEmail) { //can do if statements or ternary operators like
     }
 }
 console.log(isValidEmail("uce@gmai.com"))
+
+
+// 23 VARIABLE SCOPE
+document.getElementById("variableScope-h1").textContent = "23. Variable Scope";
+
+// variable scope = where a variable is recognised and accessible (local vs global)
+
+// this is global as it can be seen and outputted by a function (recognised and accesible program wide). can't have 2 of the same variable name
+let vsX = 4;
+//let vsX = 1;
+function1();
+
+// this is local as functions can't see what's inside the other (only recognisde within the {}). also true for anything within {}. can have 2 or more of the same variable name and value
+// e.g. if function1 console.logged y and function2 had let y = 2 and console.logged x, it returns an error
+function function1() {
+    let x = 1;
+    console.log(x);
+    console.log(vsX);
+}
+function function2() {
+    let x = 2;
+    console.log(x);
+}
