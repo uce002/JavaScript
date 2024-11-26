@@ -509,7 +509,7 @@ if(PI2 !== 3.14) { //if value isn't 3.14 number data type its not pi
 // 19 WHILE LOOPS
 document.getElementById("whileLoop-h1").textContent = "19. While Loops"
 
-// while loop = repeat some code WHILE some condition is true
+// while loop = repeat some code WHILE some condition is true (sometimes infinitely so be careful)
 //let wlUsername = "";
 
 //while(wlUsername === "" || wlUsername === null) {
@@ -531,5 +531,27 @@ while(!wlLoggedIn) { //while wlLoggedIn = false
         console.log("Welcome back sir");
     } else {
         console.log("Try again. Invalid credentials");
+    }
+} */
+
+
+// 20 FOR LOOPS
+document.getElementById("forLoop-h1").textContent = "20. For Loops"
+
+// for loop = repeat some code a LIMITED amount of times
+for(let i = 0; i <= 2; i++) { // i is a temporary counter (keeps track of the loops). 
+                           // 2nd statement is the condition (do code for this long) - 0, 1, 2. 3 times
+                           // 3rd increment/decrement counter each iteration
+    console.log(i);
+}
+//change line 541. i = 2; i<=10; i+=2 start from 2 to 10 in increments of 2
+                // i = 10; i>0;  i--  start from 10 and -1 until you reach 0
+
+/*for(let i = 1; i <= 20; i++) {
+    if(i == 13) {
+        continue; //skip this iteration
+        // break; logs 1-12 then breaks out the loop
+    } else {
+        console.log(i);
     }
 } */
