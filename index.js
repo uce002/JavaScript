@@ -504,3 +504,32 @@ if(PI2 !== 3.14) { //if value isn't 3.14 number data type its not pi
 } else {
     console.log("thats pi"); //PI2 !== 3.14 is false, meaning that value is PI
 }
+
+
+// 19 WHILE LOOPS
+document.getElementById("whileLoop-h1").textContent = "19. While Loops"
+
+// while loop = repeat some code WHILE some condition is true
+//let wlUsername = "";
+
+//while(wlUsername === "" || wlUsername === null) {
+//    wlUsername = window.prompt("Enter your name")
+
+//console.log(`Hello ${wlUsername}`);
+
+//BELOW IS THE MAIN EXAMPLE. DONT WANT ANYMORE WINDOW PROMPTS. CAN USE HMTL AND DO IT PROPERLY BUT DOESNT REALLY WORK WHEN TRYING TO USE A WHILE LOOP, ITS MUCH SIMPLER THAN THAT
+/*let wlLoggedIn = false;
+let wlUsername2;
+let wlPassword;
+
+while(!wlLoggedIn) { //while wlLoggedIn = false
+    wlUsername2 = window.prompt("Enter your username");
+    wlPassword = window.prompt("Enter your password");
+
+    if(wlUsername2 === "uce" && wlPassword === "juce") {
+        wlLoggedIn = true;
+        console.log("Welcome back sir");
+    } else {
+        console.log("Try again. Invalid credentials");
+    }
+} */
