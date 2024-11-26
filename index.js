@@ -555,3 +555,40 @@ for(let i = 0; i <= 2; i++) { // i is a temporary counter (keeps track of the lo
         console.log(i);
     }
 } */
+
+
+// 21 NUMBER GUESSING GAME
+document.getElementById("numberGuess-h1").textContent = "21. Number Guessing Game"
+
+const ngMinNum = 1;
+const ngMaxNum = 100;
+const ngAnswer = Math.floor(Math.random() * (ngMaxNum - ngMinNum + 1)); //Math.random = random number from 0-1 so we x by 100
+
+let ngAttempts = 0;
+let ngGuess;
+let ngRunning = true;
+
+while(ngRunning) {
+    ngGuess = window.prompt(`Guess a number between ${ngMinNum} - ${ngMaxNum}`);
+    ngGuess = Number(ngGuess);
+
+    if(isNaN(ngGuess)) { //if the guess isn't a number (string etc)
+        window.alert("Please enter a valid number");
+    }
+    else if(ngGuess < ngMinNum || ngGuess > ngMaxNum) {
+        window.alert("Please enter a valid number");
+    }
+    else {
+        ngAttempts++;
+        if(ngGuess < ngAnswer) {
+            window.alert("Too LOW. Try again");
+        }
+        else if(ngGuess > ngAnswer) {
+            window.alert("Too HIGH. Try again");
+        }
+        else {
+            window.alert(`Well done. The answer was ${ngAnswer} it took you ${ngAttempts} attempts`)
+            ngRunning = false;
+        }
+    }
+}
