@@ -507,7 +507,7 @@ if(PI2 !== 3.14) { //if value isn't 3.14 number data type its not pi
 
 
 // 19 WHILE LOOPS
-document.getElementById("whileLoop-h1").textContent = "19. While Loops"
+document.getElementById("whileLoop-h1").textContent = "19. While Loops";
 
 // while loop = repeat some code WHILE some condition is true (sometimes infinitely so be careful)
 //let wlUsername = "";
@@ -536,7 +536,7 @@ while(!wlLoggedIn) { //while wlLoggedIn = false
 
 
 // 20 FOR LOOPS
-document.getElementById("forLoop-h1").textContent = "20. For Loops"
+document.getElementById("forLoop-h1").textContent = "20. For Loops";
 
 // for loop = repeat some code a LIMITED amount of times
 for(let i = 0; i <= 2; i++) { // i is a temporary counter (keeps track of the loops). 
@@ -558,13 +558,14 @@ for(let i = 0; i <= 2; i++) { // i is a temporary counter (keeps track of the lo
 
 
 // 21 NUMBER GUESSING GAME
-document.getElementById("numberGuess-h1").textContent = "21. Number Guessing Game"
+document.getElementById("numberGuess-h1").textContent = "21. Number Guessing Game";
 
 const ngMinNum = 1;
 const ngMaxNum = 100;
 const ngAnswer = Math.floor(Math.random() * (ngMaxNum - ngMinNum + 1)); //Math.random = random number from 0-1 so we x by 100
 
-let ngAttempts = 0;
+// MAIN EXAMPLE
+/*let ngAttempts = 0;
 let ngGuess;
 let ngRunning = true;
 
@@ -591,4 +592,50 @@ while(ngRunning) {
             ngRunning = false;
         }
     }
+}*/
+
+
+// 22 FUNCTIONS
+document.getElementById("functions-h1").textContent = "22. Functions";
+
+// function = a section of reusable code. declare code once, call the function to execute that code
+
+// NORMAL FUNCTION
+/*function happyBirthday() {
+    console.log("happy birthday to you");
+    console.log("happy birthday dear uce");
 }
+happyBirthday(); */
+
+// FUNCTION WITH PARAMATERS & ARGUMENTS
+function happyBirthdayArgument(fName, fAge) { //parameters
+    console.log("happy birthday to you");
+    console.log(`Happy brithday dear ${fName}`);
+    console.log(`You're ${fAge} years old`);
+}
+happyBirthdayArgument("uce", 22);//arguments
+happyBirthdayArgument("juce", 30);
+
+// FUNCTION TO ADD 2 NUMBERS
+function add(x, y) {
+    return x + y; // can do x-y, x*y x/y
+    //let fResult = x + y;
+    //return fResult; // need to return the value otherwise it returns undefined. if you need a result from a function you have to use return to retrieve the result
+}
+let fAnswer = add(2, 3);
+console.log(fAnswer);
+
+function isEven(number) {
+    return number % 2 === 0 ? true : false; //return if the number divided by 2 gives remainder 0 true, else return false
+}
+console.log(isEven(11));
+
+function isValidEmail(fEmail) { //can do if statements or ternary operators like above
+    // return email.includes("@") ? true : false;
+    if(fEmail.includes("@")) {
+        return true;
+    } else {
+        return false;
+    }
+}
+console.log(isValidEmail("uce@gmai.com"))
