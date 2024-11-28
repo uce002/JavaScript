@@ -662,3 +662,29 @@ function function2() {
     let x = 2;
     console.log(x);
 }
+
+
+// 24 TEMPERATURE CONVERSION PROGRAM
+document.getElementById("tempConvert-h1").textContent = "24. Temperature Conversion Program";
+
+const tempTextbox = document.getElementById("tempTextbox");
+const toFahrenheit = document.getElementById("toFahrenheit");
+const toCelcius = document.getElementById("toCelcius");
+const tempResult = document.getElementById("tempResult");
+let temp;
+
+function convert() {
+    if(toFahrenheit.checked) {
+        temp = Number(tempTextbox.value);
+        temp = temp * 9 / 5 + 32
+        tempResult.textContent = temp.toFixed(1) + "°F"; //to fixed is accurate to 1 decimal place
+    }
+    else if(toCelcius.checked) {
+        temp = Number(tempTextbox.value);
+        temp = (temp - 32) * (5/9);
+        tempResult.textContent = temp.toFixed(1) + "°C";
+    }
+    else {
+        tempResult.textContent = "Select a unit";
+    }
+}
