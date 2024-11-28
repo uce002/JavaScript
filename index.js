@@ -688,3 +688,42 @@ function convert() {
         tempResult.textContent = "Select a unit";
     }
 }
+
+
+// 25 ARRAYS
+document.getElementById("arrays-h1").textContent = "25. Arrays";
+
+// array = a variable like structure that can hold more than 1 value
+//let fruit = "apple" variable stores 1 value
+let fruits = ["apple", "orange", "banana"]; // [] around the values makes an array, comma separated
+
+//fruits[1] = "cocount"; //can change any index after it's already been declared in the array
+//fruits.push("coconut");  //push. add an element and value to end of array
+//fruits.pop();            //pop. removes last element from array
+//fruits.unshift("mango"); //unshift. add element to start of array
+//fruits.shift();          //shift. removes first element from array
+//fruits.sort();           //sort. sort array by alphabetical order
+//fruits.sort().reverse(); //sorts array from z-a
+
+let numOfFruits = fruits.length;
+let fruitIndex = fruits.indexOf("apple"); // if i put mango it logs -1. useful to say, if this === -1 alert index/item not found
+
+console.log(numOfFruits);
+console.log(fruitIndex);
+
+//print full array
+//console.log(fruits);
+
+//print each individual element
+/*console.log(fruits[0]);
+console.log(fruits[1]); etc*/
+
+//print all elements separately
+/*for(let i = 0; i < fruits.length; i++) {
+    console.log(fruits[i]); //don't print the index, print the value
+}*/
+
+//enhanced for loop
+for(let fruit of fruits) {
+    console.log(fruit);
+}
