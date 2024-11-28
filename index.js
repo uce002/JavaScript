@@ -727,3 +727,25 @@ console.log(fruits[1]); etc*/
 for(let fruit of fruits) {
     console.log(fruit);
 }
+
+
+// 26 SPREAD OPERATOR
+document.getElementById("spreadOperator-h1").textContent = "26. Spread Operator";
+
+// spread operator = ... allows an iterable (array or string) to be expanded into separate elements (unpacks the elements)
+let spreadNumbers = [1, 2, 3, 4, 5]
+let spreadMax = Math.max(...spreadNumbers); //Math.max(spreadNumbers) doesn't work because it can't access within the array. 
+                                            //... unpacks them into separate elements so it can read each one
+console.log(spreadMax);
+
+let spreadUsername = "Uce McJuce";
+let spreadLetters = [...spreadUsername].join("-"); //separates each letter then joins them together with a - inbetween
+console.log(spreadLetters);
+
+let spreadFruits = ["apple", "orange", "banana"];
+//shallow copy. different data structure with identical values as above
+//let newSpreadFruits = [...fruits]
+let spreadVeg = ["carrots", "celery", "potatoes"];
+
+let foods = [...spreadFruits, ...spreadVeg, "eggs", "milk"]; //separate values from array spreadFruit and veg and put in a new array called food with 2 more groceries(array elements).
+console.log(foods);
