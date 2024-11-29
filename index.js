@@ -749,3 +749,58 @@ let spreadVeg = ["carrots", "celery", "potatoes"];
 
 let foods = [...spreadFruits, ...spreadVeg, "eggs", "milk"]; //separate values from array spreadFruit and veg and put in a new array called food with 2 more groceries(array elements).
 console.log(foods);
+
+
+// 27 REST PARAMETERS
+document.getElementById("restParameters-h1").textContent = "27. Rest Parameters";
+
+// rest parameter = (...rest) allow a function to work with a variable number of arguments by bundling them into an array
+// spread         = expands an array into separate elements
+// rest           = bundles separate elements into an array.  ...numbers (for example) accept any number of arguments
+
+
+function openFridge(...restFoods) { // rest ... is used for paramaters.
+    console.log(...restFoods); // spread ... is used for arrays
+}
+
+function getFood(...getRestFoods) {
+    return getRestFoods;
+}
+
+const restFood1 = "pizza";
+const restFood2 = "cheeseburger";
+const restFood3 = "hotdog";
+const restFood4 = "sushi";
+
+openFridge(restFood1, restFood2, restFood3, restFood4); //what this function does is take restFood 1-4 and bundles them into an array. then spread them on console.log to separate them
+
+const getRestFood = getFood(restFood1, restFood2, restFood3, restFood4); //this one rest(joins) restFood1-4 into an array from single instances
+console.log(getRestFood);
+
+
+function sum(...numbers) {
+    let result = 0;
+    for(let number of numbers) { //go through each index of rNumbers and add that number to the result
+        result += number;
+    }
+    return result;
+}
+const rTotal = sum(1, 2, 3, 4, 5);
+console.log(`You're total is £${rTotal}`);
+
+function getAverage(...numbers) {
+    let result = 0;
+    for(let number of numbers) { //go through each index of rNumbers and add that number to the result
+        result += number;
+    }
+    return result / numbers.length;
+}
+const avgTotal = getAverage(75, 100, 85, 90, 50);
+console.log(avgTotal);
+
+
+function combineStrings(...strings) {
+    return strings.join(" ");
+}
+const rFullname = combineStrings("Mr", "Spongebob", "Squarepants", "III")
+console.log(rFullname);
