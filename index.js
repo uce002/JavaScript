@@ -804,3 +804,55 @@ function combineStrings(...strings) {
 }
 const rFullname = combineStrings("Mr", "Spongebob", "Squarepants", "III")
 console.log(rFullname);
+
+
+// 28 DICE ROLLER PROGRAM
+document.getElementById("diceRoll-h1").textContent = "28. Dice Roller Program";
+
+//didn't do. don't really see the point in it but I did rwatch the video
+
+
+// 29 RANDOM PASSWORD GENERATOR
+document.getElementById("rpg-h1").textContent = "29. Random Password Generator";
+
+function generatePassword(rpgLength, includeLowercase, includeUppercase, includeNumbers, includeSymbols) { //paramters
+
+    const lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
+    const uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const numberChars = "0123456789";
+    const symbolChars = "!@£$%^&*()_+-=";
+
+    let allowedChars = "";
+    let rpgPassword = "";
+
+    //if includeLowercase etc is true then add it to the string allowedChars
+    allowedChars += includeLowercase ? lowercaseChars : "";
+    allowedChars += includeUppercase ? uppercaseChars : "";
+    allowedChars += includeNumbers ? numberChars : "";
+    allowedChars += includeSymbols ? symbolChars : "";
+
+    if(rpgLength <= 0) {
+        return "(password length must be at least 1)";
+    }
+    if(allowedChars.length === 0) { // if password parameters are false (0)
+        return "(At least 1 set of characters needs to be selected";
+    }
+
+    //get random letter, number, symbol from allowedChars 12 times and you have a random password
+    for(let i = 0; i < rpgLength; i++) {
+        const randomIndex = Math.floor(Math.random() * allowedChars.length);
+        rpgPassword += allowedChars[randomIndex];
+    }
+
+    return rpgPassword;
+}
+
+//password arguments
+const passwordLength = 10;
+const includeLowercase = true;
+const includeUppercase = true;
+const includeNumbers = true;
+const includeSymbols = true;
+
+const rpgPassword = generatePassword(passwordLength, includeLowercase, includeUppercase, includeNumbers, includeSymbols); //arguments
+console.log(`Generated password: ${rpgPassword}`);
