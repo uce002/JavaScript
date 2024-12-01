@@ -815,7 +815,7 @@ document.getElementById("diceRoll-h1").textContent = "28. Dice Roller Program";
 // 29 RANDOM PASSWORD GENERATOR
 document.getElementById("rpg-h1").textContent = "29. Random Password Generator";
 
-function generatePassword(rpgLength, includeLowercase, includeUppercase, includeNumbers, includeSymbols) { //paramters
+function generatePassword(rpgLength, includeLowercase, includeUppercase, includeNumbers, includeSymbols) { //parameters
 
     const lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
     const uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -856,3 +856,37 @@ const includeSymbols = true;
 
 const rpgPassword = generatePassword(passwordLength, includeLowercase, includeUppercase, includeNumbers, includeSymbols); //arguments
 console.log(`Generated password: ${rpgPassword}`);
+
+
+// 30 CALLBACKS
+document.getElementById("callback-h1").textContent = "30. Callbacks";
+
+// callback = a function that's passed as an argument to another function
+// used to handle asynchronous operations e.g. reading a file only when it's fully read, then display it. JS will move on to the next bit of code if one bit takes a while. callback is to stop this if order matters (which it usually does)
+// e.g. network request, interacting with DB's. when done with that, call this next
+
+hello(goodbye); //no () after goodbye. callback ensures goodbye is executed straight after hello
+
+function hello(callback) { //do hello first then callback to goodbye (line 867)
+    console.log("hello");
+    callback();
+}
+
+function goodbye() {
+    console.log("goodbye");
+}
+
+callbackSum(displayPage, 1, 2);
+
+function callbackSum(callback, x, y) {
+    let result = x + y;
+    callback(result);
+}
+
+function displayConsole(result) {
+    console.log(result);
+}
+
+function displayPage(result) {
+    document.getElementById("callback-p").textContent = result;
+}
