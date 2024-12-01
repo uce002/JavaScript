@@ -890,3 +890,44 @@ function displayConsole(result) {
 function displayPage(result) {
     document.getElementById("callback-p").textContent = result;
 }
+
+
+// 31 FOREACH()
+document.getElementById("forEach-h1").textContent = "31. forEach()";
+
+// forEach() = method used to iterate over the elements of an array and apply a specified function (callback) to each element. 
+// array.forEach(callback)
+// element, index, array are provided. forEach knows and keeps track of each element, it's index and the array it's working on
+let feNumbers = [1, 2, 3, 4, 5];
+
+feNumbers.forEach(double);
+feNumbers.forEach(display);
+
+function double(element, index, array) {
+    array[index] = element * 2; //forEach index, get the element and * by 2
+}
+
+function square(element, index, array) {
+    array[index] = Math.pow(element, 2);
+}
+
+function display(element) {
+    console.log(element);
+}
+
+let feFruits = ["apple", "banana", "orange", "coconut"];
+
+feFruits.forEach(feCaptialise);
+feFruits.forEach(display);
+
+function feUppercase(element, index, array) {
+    array[index] = element.toUpperCase();
+}
+
+function feCaptialise(element, index, array) {
+    array[index] = element.charAt(0).toUpperCase() + element.slice(1); //for array at index index(it keeps track by itself like i=0; i<length; i++), make element 0 (first letter) uppercase then the rest of the word
+}
+
+function display(element) {
+    console.log(element);
+}
