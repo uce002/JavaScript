@@ -895,7 +895,7 @@ function displayPage(result) {
 // 31 FOREACH()
 document.getElementById("forEach-h1").textContent = "31. forEach()";
 
-// forEach() = method used to iterate over the elements of an array and apply a specified function (callback) to each element. 
+// .forEach() = method used to iterate over the elements of an array and apply a specified function (callback) to each element. 
 // array.forEach(callback)
 // element, index, array are provided. forEach knows and keeps track of each element, it's index and the array it's working on
 let feNumbers = [1, 2, 3, 4, 5];
@@ -954,4 +954,42 @@ console.log(formattedDates);
 function formatDates(element) {
     const parts = element.split("-"); //split the elements from each dash
     return `${parts[2]}/${parts[1]}/${parts[0]}}`; //10/01/2024
+}
+
+
+// 33 FILTER()
+document.getElementById("filter-h1").textContent = "33. Filter()";
+
+// .filter() = creates a new array by filtering out elements
+let filterNumbers = [1, 2, 3, 4, 5, 6, 7];
+let evenNums = filterNumbers.filter(filterIsEven);
+let oddNums = filterNumbers.filter(filterIsOdd);
+
+console.log(evenNums);
+console.log(oddNums);
+
+function filterIsEven(element) {
+    return element % 2 === 0; //if number / 2 doesn't remainder 0, filter it out
+}
+
+function filterIsOdd(element) {
+    return element % 2 !== 0;
+}
+
+const filterAges = [16, 17, 18, 18, 20, 55];
+const adults = filterAges.filter(isAdult);
+
+console.log(adults);
+
+function isAdult(element) {
+    return element >= 18;
+}
+
+const words = ["apple", "orange", "banana", "grape", "cocount", "pomegranate", "kiwi"];
+const shortWords = words.filter(getShortWords);
+
+console.log(shortWords);
+
+function getShortWords(element) {
+    return element.length <= 6; //getLongWords is length >6
 }
