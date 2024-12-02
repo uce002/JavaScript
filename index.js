@@ -931,3 +931,27 @@ function feCaptialise(element, index, array) {
 function display(element) {
     console.log(element);
 }
+
+
+// 32 MAP()
+document.getElementById("map-h1").textContent = "32. map()";
+
+// .map() = accepts a callback and applies that function to each element of an array, then returns a new array. forEach will change the array itself, map creates a new array and keeps the orignal array
+const mapNumbers = [1, 2, 3, 4, 5];
+const cubes = mapNumbers.map(cube);
+
+console.log(cubes);
+
+function cube(element) {
+    return Math.pow(element, 3)
+}
+
+const mapDates = ["2024-01-10", "2025-02-20", "2026-03-30"];
+const formattedDates = mapDates.map(formatDates);
+
+console.log(formattedDates);
+
+function formatDates(element) {
+    const parts = element.split("-"); //split the elements from each dash
+    return `${parts[2]}/${parts[1]}/${parts[0]}}`; //10/01/2024
+}
