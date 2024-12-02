@@ -958,7 +958,7 @@ function formatDates(element) {
 
 
 // 33 FILTER()
-document.getElementById("filter-h1").textContent = "33. Filter()";
+document.getElementById("filter-h1").textContent = "33. filter()";
 
 // .filter() = creates a new array by filtering out elements
 let filterNumbers = [1, 2, 3, 4, 5, 6, 7];
@@ -992,4 +992,33 @@ console.log(shortWords);
 
 function getShortWords(element) {
     return element.length <= 6; //getLongWords is length >6
+}
+
+
+// 34 REDUCE()
+document.getElementById("reduce-h1").textContent = "34. reduce()";
+
+// .reduce() = reduce the elements of an array to a single value
+const reducePrices = [5, 30, 10, 25, 15, 20];
+const reduceTotal = reducePrices.reduce(reduceSum);
+
+console.log(`£${reduceTotal}`);
+
+function reduceSum(accumulator, element) { //previous element + next element. accumulator keeps count of the sum then + next element
+    return accumulator + element;
+}
+
+const reduceGrades = [75, 50, 90, 80, 65, 95];
+const reduceMax = reduceGrades.reduce(getMax);
+const reduceMin = reduceGrades.reduce(getMin);
+
+console.log(reduceMax);
+console.log(reduceMin);
+
+function getMax(accumulator, element) {
+    return Math.max(accumulator, element);
+}
+
+function getMin(accumulator, element) {
+    return Math.min(accumulator, element);
 }
