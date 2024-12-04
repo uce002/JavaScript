@@ -1022,3 +1022,43 @@ function getMax(accumulator, element) {
 function getMin(accumulator, element) {
     return Math.min(accumulator, element);
 }
+
+
+// 35 FUNCTION EXPRESSIONS
+document.getElementById("functionExpressions-h1").textContent = "35. Function Expressions";
+
+// function delcaration = define a reusable block of code that performs a specific task
+//function exampleHello() {
+//    console.log("hello");
+//}
+
+// function expressions = a way to define functions as values or variables
+// function as a variable
+const feHello = function() {
+    console.log("hello");
+}
+feHello();
+
+// function as a value (argument)
+setTimeout(function() {
+    console.log("Hello");
+}, 3000); //print hello after 3 seconds (3000 milliseconds)
+
+// pro = no need to declare loads of functions and names. if you're only using the function once do it like this. case in point, all of my const and function names that I have to make sure I'm not reusing
+
+// instead of line 940-947 do function as a value function expression
+const funExpNumbers = [1, 2, 3, 4, 5, 6];
+const funExpSquares = funExpNumbers.map(function(element) {
+    return Math.pow(element, 2);
+});
+console.log(funExpSquares);
+
+const funExpEvenNums = funExpNumbers.filter(function(element) {
+    return element % 2 === 0;
+});
+console.log(funExpEvenNums);
+
+const funExpTotal = funExpNumbers.reduce(function(accumulator, element) {
+    return accumulator + element;
+});
+console.log(funExpTotal);
