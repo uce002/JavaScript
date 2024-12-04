@@ -1062,3 +1062,30 @@ const funExpTotal = funExpNumbers.reduce(function(accumulator, element) {
     return accumulator + element;
 });
 console.log(funExpTotal);
+
+
+// 36 ARROW FUNCTIONS
+document.getElementById("arrowFunctions-h1").textContent = "36. Arrow Functions";
+
+// arrow functions = a concise way to write function expressions. good for simple functions that are only used once.
+// e.g.
+//const arrowFunHello = () => console.log("Hello");
+//arrowFunHello();
+
+// arrow function with parameters
+const arrowFunHello = (name, age) => {console.log(`Hello ${name}`)
+                                      console.log(`You are ${age} years old`)};
+arrowFunHello("Uce", 22);
+
+// instead of line 1043-1045
+setTimeout(() => console.log("Hello"), 3000);
+
+const arrowFunNumbers = [1, 2, 3, 4, 5, 6, 7];
+const arrowFunCubes = arrowFunNumbers.map((element) => Math.pow(element, 3));
+console.log(arrowFunCubes);
+
+const arrowFunOddNums = arrowFunNumbers.filter((element) => element % 2 !== 0);
+console.log(arrowFunOddNums);
+
+const arrowFunTotal = arrowFunNumbers.reduce((accumulator, element) => accumulator + element);
+console.log(arrowFunTotal);
