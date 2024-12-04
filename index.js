@@ -1089,3 +1089,34 @@ console.log(arrowFunOddNums);
 
 const arrowFunTotal = arrowFunNumbers.reduce((accumulator, element) => accumulator + element);
 console.log(arrowFunTotal);
+
+
+// 37 JAVASCRIPT OBJECTS
+document.getElementById("jsObjects-h1").textContent = "37. JavaScript Objects";
+
+// object = a collection of related properties and/or methods. property is age, firtname etc, they're key value pairs. method is a function that an object can perform
+//          objects can represent real world objects (people, products, places)
+//          e.g. object = {key:value,
+//                         function()};
+
+const person1 = {
+    objectFirstname: "Spongebob",
+    objectLastname: "Squarepants",
+    objectAge: 30,
+    objectIsEmployed: true,
+    sayHello: () => console.log("Hi, I'm Spongebob"),
+    eat: () => console.log("I'm eating a krabby patty"),
+}
+
+const person2 = {
+    objectFirstname: "Patrick",
+    objectLastname: "Star",
+    objectAge: 42,
+    objectIsEmployed: false,
+    sayHello: function(){console.log("Hey, I'm Patrick")},
+}
+
+console.log(person2.objectFirstname);
+
+person2.sayHello();
+person1.eat();
