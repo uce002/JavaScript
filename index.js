@@ -1115,8 +1115,23 @@ const person2 = {
     objectIsEmployed: false,
     sayHello: function(){console.log("Hey, I'm Patrick")},
 }
-
 console.log(person2.objectFirstname);
 
 person2.sayHello();
 person1.eat();
+
+
+// 38 THIS
+document.getElementById("this-h1").textContent = "38. This";
+
+// this = reference to the object where THIS is used. (the object dependds on the immeadiate context) person.name = this.name
+// this doesn't work with arrow functions so just use function expressions
+const tPerson1 = {
+    name: "spongebob",
+    favFood: "krabby patty",
+    sayHello: function(){console.log(`Hi! I'm ${this.name}`)},
+    eat: function(){console.log(`${this.name} is eating ${this.favFood}`)},
+}
+tPerson1.sayHello();
+tPerson1.eat();
+
