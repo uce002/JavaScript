@@ -1137,7 +1137,7 @@ tPerson1.eat();
 
 
 // 39 CONSTRUCTORS
-document.getElementById("constructors-h1").textContent = "38. Constructors";
+document.getElementById("constructors-h1").textContent = "39. Constructors";
 
 // constructor = special method for defining the properties and methods of object
 function Car(make, model, year, color) {
@@ -1154,3 +1154,34 @@ const car3 = new Car("Dodge", "Charger", "2026", "red");
 
 car2.drive();
 console.log(car1.make);
+
+
+// 40 CLASSES
+document.getElementById("classes-h1").textContent = "40. Classes";
+
+// class = (ES6 feature). Provides a more structured and cleaner way to work with objects compared to traditional constructor functions.
+// e.g. static keyword, encapsulation, inheritance
+class Product {
+    constructor(name, price) {
+        this.name = name;
+        this.price = price;
+    }
+    displayProduct() {
+        console.log(`Product: ${this.name}`);
+        console.log(`Price: ${this.price.toFixed(2)}`);
+    }
+    calculateTotal(salesTax) {
+        return this.price + (this.price * salesTax);
+    }
+}
+
+const salesTax = 0.05; //5% tax
+
+const product1 = new Product("Shirt", 19.99);
+const product2 = new Product("Pants", 22.50);
+const product3 = new Product("Underwear", 100.00);
+
+product3.displayProduct();
+
+const classTotal = product3.calculateTotal(salesTax);
+console.log(`Total price (with tax): £${classTotal.toFixed(2)}`);
