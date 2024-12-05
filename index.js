@@ -1272,3 +1272,60 @@ hawk.eat();
 console.log(rabbit.alive);
 fish.sleep();
 hawk.fly();
+
+
+// 43 SUPER
+document.getElementById("super-h1").textContent = "43. Super";
+
+// super = keyword used in classes to call the constructor or access the properties and methods of a parent (superclass)
+// this = this object.  super = the parent
+// instead of having name and age in each child class, put it in the superclass and then call the super with the arguments in each child so name and age can be used
+class SuperAnimal {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    move(speed) {
+        console.log(`The ${this.name} moves at a speed of ${speed}mph`);
+    }
+}
+class SuperRabbit extends SuperAnimal {
+    constructor(name, age, runSpeed) {
+        super(name, age);
+        this.runSpeed = runSpeed;
+    }
+    superRun() {
+        console.log(`This ${this.name} can run`);
+        super.move(this.runSpeed); // call super again to get the run speed console.log and pass in runSpeed, flySpeed etc
+    }
+}
+class SuperFish extends SuperAnimal {
+    constructor(name, age, swimSpeed) {
+        super(name, age);
+        this.swimSpeed = swimSpeed;
+    }
+    superSwim() {
+        console.log(`This ${this.name} can swim`);
+        super.move(this.swimSpeed);
+    }
+}
+class SuperHawk extends SuperAnimal {
+    constructor(name, age, flySpeed) {
+        super(name, age);
+        this.flySpeed = flySpeed;
+    }
+    superFly() {
+        console.log(`This ${this.name} can fly`);
+        super.move(this.flySpeed);
+    }
+}
+
+const superRabbit = new SuperRabbit("rabbit", 1, 25);
+const superFish = new SuperFish("fish", 2, 12);
+const superHawk = new SuperHawk("hawk", 3, 50);
+
+superFish.superSwim();
+
+console.log(superHawk.name);
+console.log(superHawk.age);
+console.log(superHawk.flySpeed);
