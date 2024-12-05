@@ -1135,3 +1135,22 @@ const tPerson1 = {
 tPerson1.sayHello();
 tPerson1.eat();
 
+
+// 39 CONSTRUCTORS
+document.getElementById("constructors-h1").textContent = "38. Constructors";
+
+// constructor = special method for defining the properties and methods of object
+function Car(make, model, year, color) {
+    this.make = make,
+    this.model = model,
+    this.year = year,
+    this.color = color
+    this.drive = function(){console.log(`You drive the ${this.model}`)}
+}
+
+const car1 = new Car("Ford", "Mustang", "2024", "blue");
+const car2 = new Car("Chevrolet", "Camaro", "2025", "yellow");
+const car3 = new Car("Dodge", "Charger", "2026", "red");
+
+car2.drive();
+console.log(car1.make);
