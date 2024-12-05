@@ -1228,3 +1228,47 @@ user1.sayHello();
 user2.sayHello();
 user3.sayHello();
 User.getUserCount();
+
+
+// 42 INHERITANCE
+document.getElementById("inheritance-h1").textContent = "42. Inheritance";
+
+// inheritance = allows a new class to inherit properties and methods from an existing class (parent -> child). helps with code reusability
+// parent class Animal
+class Animal {
+    alive = true;
+    eat() {
+        console.log(`This ${this.name} is eating`);
+    }
+    sleep() {
+        console.log(`This ${this.name} is sleeping`);
+    }
+}
+
+//children classes
+class Rabbit extends Animal {
+    name = "rabbit";
+    run() {
+        console.log(`This ${this.name} is running`);
+    }
+}
+class Fish extends Animal {
+    name = "fish";
+}
+class Hawk extends Animal {
+    name = "hawk";
+    fly() {
+        console.log(`The ${this.name} is flying`);
+    }
+}
+
+const rabbit = new Rabbit();
+const fish = new Fish();
+const hawk = new Hawk();
+
+rabbit.alive = false;
+
+hawk.eat();
+console.log(rabbit.alive);
+fish.sleep();
+hawk.fly();
