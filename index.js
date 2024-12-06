@@ -1336,7 +1336,7 @@ document.getElementById("getterSetter-h1").textContent = "44. Getters & Setters"
 
 // getter = special method that makes a property readable
 // setter = special method that makes a property writeable
-// validate and modify a value when reading/writing a property
+// by using both you can validate and modify a value when reading or writing a property
 class Rectangle {
     constructor(width, height) {
         this.width = width;
@@ -1427,3 +1427,66 @@ const person3 = new Person3("Spongebob", "Squarepants", 30);
 console.log(person3.firstName);
 console.log(person3.lastName);
 console.log(person3.age);
+
+
+// 45 DESTRUCTURING
+document.getElementById("destructuring-h1").textContent = "45. Destructuring";
+
+// destructuring = extract values from arrays and objects, then assign them to variables in a convenient way
+// [] = to perform array destructuring
+// {} = to perform object destructuring
+
+// E.G. 1. SWAP THE VALUE OF 2 VARIABLES
+let a = 1;
+let b = 2;
+
+[a, b] = [b, a]; //left is destructuring, right is new array
+console.log(a);
+console.log(b);
+
+// E.G. 2. SWAP THE ELEMENTS IN AN ARRAY
+const colors = ["red", "green", "blue", "black", "white"];
+[colors[0], colors [4]] = [colors[4], colors[0]];
+console.log(colors);
+
+// E.G. 3. ASSIGN ARRAY ELEMENTS TO VARIABLES
+const colors2 = ["red", "green", "blue", "black", "white"];
+const [firstColor, secondColor, thirdColor, ...extraColors] = colors2; //destructure colors2 and make the first color its own varaible and so on. rest parameter the least 2 colours (bundle elements and put them into an array)
+
+console.log(firstColor);
+console.log(secondColor);
+console.log(thirdColor);
+console.log(extraColors);
+
+// E.G. 4. EXTRACT VALUES FROM OBJECTS
+const destructurePerson = {
+    dFirstName: "Spongebob",
+    dLastName: "Squarepants",
+    dAge: 30,
+    dJob: "fry cook",
+}
+const destructurePerson2 = {
+    dFirstName: "Patrick",
+    dLastName: "Star",
+    dAge: 34,
+}
+const {dFirstName, dLastName, dAge, dJob="unemployed"} = destructurePerson2; //when a variable is undefined you can give it a default value, otherwise what the job is will be displayed
+console.log(dFirstName);
+console.log(dLastName);
+console.log(dAge);
+console.log(dJob);
+
+// E.G. 5. DESTRUCTURE IN FUNCTION PARAMETERS
+// when you receive the object into the function, destructure it using parameters and console.log them
+function displayPerson({d5FirstName, d5LastName, d5Age, d5Job}) {
+    console.log(`name: ${d5FirstName} ${d5LastName}`);
+    console.log(`age: ${d5Age}`);
+    console.log(`job: ${d5Job}`);
+}
+const destructurePerson3 = {
+    d5FirstName: "Spongebob",
+    d5LastName: "Squarepants",
+    d5Age: 30,
+    d5Job: "fry cook",
+}
+displayPerson(destructurePerson3);
