@@ -1329,3 +1329,101 @@ superFish.superSwim();
 console.log(superHawk.name);
 console.log(superHawk.age);
 console.log(superHawk.flySpeed);
+
+
+// 44 GETTERS & SETTERS
+document.getElementById("getterSetter-h1").textContent = "44. Getters & Setters";
+
+// getter = special method that makes a property readable
+// setter = special method that makes a property writeable
+// validate and modify a value when reading/writing a property
+class Rectangle {
+    constructor(width, height) {
+        this.width = width;
+        this.height = height;
+    }
+    set width(newWidth) {
+        if(newWidth > 0) { //validate that input is a positive number. you can now write a number
+            this._width = newWidth; //_width means it's private and shouldn't be changed
+        }
+        else {
+            console.error("Width must be a positive number");
+        }
+    }
+    set height(newHeight) {
+        if(newHeight > 0) {
+            this._height = newHeight;
+        }
+        else {
+            console.error("Height must be a positive number");
+        }
+    }
+
+    get width() { // now get the value
+        return this._width;
+    }
+    get height() {
+        return this._height;
+    }
+    get area() { //getter allows for additional functions that you don't want/need in the constructor but you can still call them even if they're not in there
+        return this._height * this._width;
+    }
+}
+// e.g. using a setter to ensure this doesn't happen
+//const rectangle = new Rectangle(-1000, "pizza");
+
+const rectangle = new Rectangle(3, 5);
+console.log(rectangle.width);
+console.log(rectangle.height);
+console.log(rectangle.area);
+
+class Person3 {
+    constructor(firstName, lastName, age) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+    }
+    set firstName(newFirstName) {
+        if(typeof newFirstName === "string" && newFirstName.length > 0) {
+            this._firstName = newFirstName; //this private firstname = the newFirstname we receive
+        }
+        else {
+            console.error("First name must be a non-empty string");
+        }
+    }
+    set lastName(newLastName) {
+        if(typeof newLastName === "string" && newLastName.length > 0) {
+            this._lastName = newLastName;
+        }
+        else {
+            console.error("Last name must be a non-empty string");
+        }
+    }
+    set age(newAge) {
+        if(typeof newAge === "number" && newAge >= 0) {
+            this._age = newAge;
+        }
+        else {
+            console.error("Age must be a non-negative number");
+        }
+    }
+
+    get firstName() {
+        return this._firstName;
+    }
+    get lastName() {
+        return this._lastName;
+    }
+    get age() {
+        return this._age;
+    }
+    get fullName() {
+        return this._firstName + " " + this._lastName;
+    }
+
+}
+
+const person3 = new Person3("Spongebob", "Squarepants", 30);
+console.log(person3.firstName);
+console.log(person3.lastName);
+console.log(person3.age);
