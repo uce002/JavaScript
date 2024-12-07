@@ -1490,3 +1490,38 @@ const destructurePerson3 = {
     d5Job: "fry cook",
 }
 displayPerson(destructurePerson3);
+
+
+// 46 NESTED OBJECTS
+document.getElementById("nestedObjects-h1").textContent = "46. Nested Objects";
+
+// nested objects = objects inside of other objects. Allows you to represent more complex data structures. Child Object is enclosed by a Parent Object. 2 e.g. below
+// Person{Address{}, ContactInfo{}}
+// ShoppingCart{Keyboard{}, Mouse{}, Monitor{}}
+
+// Address is the child object of the Person object. and we access it by making a new object
+class nestPerson {
+    constructor(name, age, ...address) { // rest parameter. pass in different parts of an address and store it as an array
+        this.name = name;
+        this.age = age;
+        this.address = new nestAddress(...address);
+    }
+}
+
+class nestAddress {
+    constructor(street, city, country) {
+        this.street = street;
+        this.city = city;
+        this.country = country;
+    }
+}
+
+const nestPerson1 = new nestPerson("Spongebob", 30, "124 Conch St.", "Bikini Bottom", "Intl Waters");
+const nestPerson2 = new nestPerson("Patrick", 37, "128 Conch St", "Bikini Bottom", "Intl Waters");
+const nestPerson3 = new nestPerson("Squidward", 45, "126 Conch St", "Bikini Bottom", "Intl Waters");
+
+console.log(nestPerson1.name);
+console.log(nestPerson1.age);
+console.log(nestPerson1.address); // prints the object which is what we want
+console.log(nestPerson3.name);
+console.log(nestPerson3.address.street); // use another . (property accessor) to access properties in the nested object
