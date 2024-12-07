@@ -1525,3 +1525,48 @@ console.log(nestPerson1.age);
 console.log(nestPerson1.address); // prints the object which is what we want
 console.log(nestPerson3.name);
 console.log(nestPerson3.address.street); // use another . (property accessor) to access properties in the nested object
+
+
+// 47 ARRAYS OF OBJECTS
+document.getElementById("arraysOfObjects-h1").textContent = "47. Arrays of Objects";
+
+const aoFruits = [{name: "apple", color: "red", calories: 95},
+                  {name: "orange", color: "orange", calories: 45},
+                  {name: "banana", color: "yellow", calories: 105},
+                  {name: "coconut", color: "white", calories: 159},
+                  {name: "pineapple", color: "yellow", calories: 37},]
+// access property in an array of objects
+console.log(aoFruits[0].name); //index number and any property
+
+//aoFruits.push({name: "grapes", color: "purple", calories: 62}); // add object to array of objects
+//console.log(aoFruits);
+
+//aoFruits.pop(); // remove last object
+//console.log(aoFruits);
+
+// splice remove object at given index
+//aoFruits.splice(1, 2); // get rid of orange and banana
+//console.log(aoFruits);
+
+// forEach()
+//aoFruits.forEach(fruit => console.log(fruit)); //prints each object separately
+//aoFruits.forEach(fruit => console.log(fruit.name)); //print each name or color property etc
+
+// map() loop through and create a new array
+//const fruitNames = aoFruits.map(fruit => fruit.name); // for every fruit, get it's name property and put it into a new array called fruitNames
+//const fruitColors = aoFruits.map(fruit => fruit.color);
+//console.log(fruitNames);
+
+// filter(). return a new array after checking all values against a given argument
+//const yellowFruits = aoFruits.filter(fruit => fruit.color === "yellow");
+//const lowCalFruits = aoFruits.filter(fruit => fruit.calories < 100);
+//console.log(lowCalFruits);
+//console.log(yellowFruits);
+
+// reduce(). return a single value. in this instance a single object
+const maxFruit = aoFruits.reduce((max, fruit) => fruit.calories > max.calories ? fruit : max) ; //usually accumulator and element. max is the max cal at the moment and element is the next element
+// if current fruit calories is more than max then that is the max else the previous max is still the max
+console.log(maxFruit); //to get just the calories .calories
+
+const minFruit = aoFruits.reduce((min, fruit) => fruit.calories < min.calories ? fruit: min);
+console.log(minFruit);
