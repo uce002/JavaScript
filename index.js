@@ -1570,3 +1570,31 @@ console.log(maxFruit); //to get just the calories .calories
 
 const minFruit = aoFruits.reduce((min, fruit) => fruit.calories < min.calories ? fruit: min);
 console.log(minFruit);
+
+
+// 48 SORTING
+document.getElementById("sorting-h1").textContent = "48. Sorting";
+
+// sort() = method used to sort elements of an array in place. sorts elements as strings in lexicographic order, not alphabetical
+// lexicographic = (alphabet + numbers + symbols) as strings
+let sortingNumbers = [1, 10, 2, 9, 3, 8, 4, 7, 5, 6];
+//sortingNumbers.sort();
+//console.log(sortingNumbers); // each element treated as strings so 1, 10, 2, 3, 4 etc. 1 and 10 both start with one so they are before 2, 3 etc
+
+//sortingNumbers.sort((a, b) => a - b); //a, b = 2 contiguous numbers (1, 10.  10, 2.  2, 9 etc). a - b = 2 - 9 = -7 (2 stays where it is, to the left). 9 - 3 = 6 (9 moves right as the answer is positive). if the answer was 0 they both stay at the same place because they're the same number
+//console.log(sortingNumbers);
+
+//sortingNumbers.sort((a, b) => b - a); // reverse order is b - a
+//console.log(sortingNumbers);
+
+const sortingPeople = [{name: "Spongebob", age: 30, gpa: 3.0},
+                       {name: "Patrick", age: 37, gpa: 1.5},
+                       {name: "Squidward", age: 51, gpa: 2.5},
+                       {name: "Sandy", age: 27, gpa: 4.0},]
+
+//sortingPeople.sort((a, b) => a.age - b.age); //reverse age is b.age - a.age
+//console.log(sortingPeople);
+
+//sortingPeople.sort((a, b) => a.name - b.name); //this doesn't work because it's a string inside an object
+sortingPeople.sort((a, b) => a.name.localeCompare(b.name));
+console.log(sortingPeople);
