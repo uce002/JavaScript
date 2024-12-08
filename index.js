@@ -1631,3 +1631,71 @@ const date4 = new Date("2024-01-01");
 if(date4 > date3) {
     console.log("Happy New Year");
 }
+
+
+// 51 CLOSURES
+document.getElementById("closures-h1").textContent = "51. Closures";
+
+// closure = a function defined inside of another function, the inner function has access to the variables and scope of the outer function.
+// allows for (1)private variables and (2)state maintenance. used frequently in JS frameworks: React, Vue, Angular
+function outer() {
+    let message = "hello"; //can only be accessed within the outer() function including the inner() function (closure). message is now (1)private
+
+    function inner() {
+        console.log(message);
+
+    }
+    inner();
+}
+outer(); // line 1642 comment
+
+function createCounter() {
+
+    let count = 0; // (2)maintain the state of this variable and remember what it was before and (1) keep it private by closure inside a function that can't be changed outside the function
+
+    function increment() {
+        count ++;
+        console.log(`Count increased to ${count}`);
+    }
+    function getCount() {
+        return count;
+    }
+
+    return {increment, getCount} //return an object that has an increment function and has access to the stored count number
+}
+
+const counter = createCounter(); //said object
+counter.increment();
+counter.increment();
+counter.increment();
+
+//console.log(counter.count); //undefined. can't change, view or access the count variable as it's in a closure. maintaining the state and keeping it private
+console.log(`The current count is ${counter.getCount()}`);
+
+
+// e.g. counter for a game
+function createGame() {
+
+    let score = 0;
+
+    function increaseScore(points) {
+        score += points;
+        console.log(`+${points}pts`);
+    }
+    function decreaseScore(points) {
+        score -= points;
+        console.log(`-${points}pts`);
+    }
+    function getScore() {
+        return score;
+    }
+
+    return {increaseScore, decreaseScore, getScore}; //return an object that has access to all the above functions
+}
+
+const game = createGame(); //said object
+
+game.increaseScore(5);
+game.increaseScore(6);
+game.decreaseScore(3);
+console.log(`The final score is ${game.getScore()}pts`)
