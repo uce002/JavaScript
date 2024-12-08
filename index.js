@@ -1598,3 +1598,36 @@ const sortingPeople = [{name: "Spongebob", age: 30, gpa: 3.0},
 //sortingPeople.sort((a, b) => a.name - b.name); //this doesn't work because it's a string inside an object
 sortingPeople.sort((a, b) => a.name.localeCompare(b.name));
 console.log(sortingPeople);
+
+
+// 49 SHUFFLE AN ARRAY
+document.getElementById("shuffleArray-h1").textContent = "49. Shuffle an Array";
+// didn't do. was optional if I make a game where I need to shuffle an array I know I can come back here
+
+
+// 50 DATES
+document.getElementById("dates-h1").textContent = "50. Dates";
+
+// date objects = objects that contain values that represent dates and times. they can be changed and formatted
+// Date(year, month, day, hour, minute, second, ms)
+//const date = new Date(2025, 0, 1, 2, 3, 4, 5); // 0 = jan, 1 = feb, 11 = dec
+
+const date2 = new Date();
+const year = date2.getFullYear();
+const month = date2.getMonth();
+const day2 = date2.getDate();
+const dayOfWeek = date2.getDay(); //getHours()  getMinutes()    getSeconds()
+
+console.log(year);
+console.log(month);
+console.log(day2);
+console.log(dayOfWeek); // 0 = sun, 1 = mon etc
+
+//date2.setFullYear(2024);
+//date2.setMonth(0); etc to set the date
+
+const date3 = new Date("2023-12-31");
+const date4 = new Date("2024-01-01");
+if(date4 > date3) {
+    console.log("Happy New Year");
+}
