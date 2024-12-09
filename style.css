@@ -1,3 +1,6 @@
+button, input, label {
+    border-color: black;
+}
 /* 7 COUNTER PROGRAM*/
 #countLabel {
     display: block;
@@ -102,8 +105,73 @@ body {
 
 #clock {
     font-family: monospace;
-    font-size: 6.5rem;
+    font-size: 6.5rem; /*REM IS RELATIVE TO THE ROOT ELEMENT (DEFAULT FONT SIZE OF THE BROWSER). EM IS RELATIVE TO THE PARENT ELEMENT'S FONT SIZE, MEANS A BUTTON CAN GROW OR SHRINK WITHIN ITS CONTAINER*/
     font-weight: bold;
     text-align: center;
     width: 100%;
+}
+
+/* 54 STOPWATCH PROGRAM*/
+#stopwatchProgram {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(142, 142, 142);
+}
+
+#stopwatch-h2 {
+    font-size: 4rem;
+    color: rgba(0, 0, 0, 0.25);
+}
+
+#stopwatchContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+    border: 5px solid;
+    border-radius: 50px;
+    background-color: white;
+}
+
+#stopwatchDisplay {
+    font-size: 5rem;
+    font-family: monospace;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.65);
+    text-shadow: 2px 2px 2px;
+    margin-bottom: 25px;
+}
+
+#stopwatchControls button {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin: 5px;
+    min-width: 125px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    transition: background-color 0.5s ease; /*when you hover over the buttons it will slowly change to a darker shade*/
+}
+
+#startBtn {
+    background-color: hsl(120, 91%, 40%);
+}
+#startBtn:hover {
+    background-color: hsl(120, 91%, 30%);
+}
+
+#stopBtn {
+    background-color: hsl(0, 100%, 40%);
+}
+#stopBtn:hover {
+    background-color: hsl(0, 100%, 30%);
+}
+
+#resetBtn {
+    background-color: hsl(237, 100%, 40%);
+}
+#resetBtn:hover {
+    background-color: hsl(237, 100%, 30%);
 }

@@ -1742,4 +1742,56 @@ function updateClock() {
     document.getElementById("clock").textContent = timeString;
 }
 updateClock();
-setInterval(updateClock, 1000); //update the clock every second
+// setInterval(updateClock, 1000); //update the clock every second
+
+
+// 54 STOPWATCH PROGRAM
+document.getElementById("stopwatch-h1").textContent = "54. Stopwatch Program";
+
+const stopwatchDisplay = document.getElementById("stopwatchDisplay");
+let timer = null; //keep track of when it's stopped. null to start with
+let startTime = 0;
+let elapsedTime = 0;
+let isRunning = false;
+
+function start() {
+    if(!isRunning) {
+        startTime = Date.now() - elapsedTime;
+        timer = setInterval(update, 10); //get the time every 10ms
+        isRunning = true;
+    }
+}
+
+function stop() {
+    if(isRunning) {
+        clearInterval(timer); //stop the timer
+        elapsedTime = Date.now() - startTime; //remember the time it was stopped at
+        isRunning = false; //not running
+    }
+}
+
+function reset() {
+    clearInterval(timer);
+    startTime = 0;
+    elapsedTime = 0;
+    isRunning = false;
+    stopwatchDisplay.textContent = "00:00:00:00";
+}
+
+function update() {
+    const currentTime = Date.now();
+    elapsedTime = currentTime - startTime;
+
+    let hours = Math.floor(elapsedTime / (1000 * 60 * 60)); //convert ms to hours
+    let minutes = Math.floor(elapsedTime / (1000 * 60) % 60); //modulus 60, don't want minutes to go above 60 so it reset to 0
+    let seconds = Math.floor(elapsedTime / 1000) % 60;
+    let milliseconds = Math.floor(elapsedTime % 1000 / 10); // / by 10 to get 2 decimal place  milliseconds, not the full to the thousandth
+
+    //convert time to strings and pad with a 0 or 2 0's so it looks like the time
+    hours = String(hours).padStart(2, "0");
+    minutes = String(minutes).padStart(2, "0");
+    seconds = String(seconds).padStart(2, "0");
+    milliseconds = String(milliseconds).padStart(2, "0");
+
+    stopwatchDisplay.textContent = `${hours}:${minutes}:${seconds}:${milliseconds}`;
+}
