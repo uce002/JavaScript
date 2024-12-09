@@ -1699,3 +1699,31 @@ game.increaseScore(5);
 game.increaseScore(6);
 game.decreaseScore(3);
 console.log(`The final score is ${game.getScore()}pts`)
+
+
+// 52 SETTIMEOUT()
+document.getElementById("setTimeout-h1").textContent = "52. setTimeout()";
+
+// setTimeout() = function that allows you to schedule the execution of a function after an amount of time (in milliseconds)
+// times are approximate (varies based on the workload of the JS runtime environment) not suitable for stopwatch. setTimeout(callback, delay);
+
+//function timeoutSayHello() {
+//    window.alert("Hello");
+//}
+//setTimeout(timeoutSayHello, 3000);
+
+//clearTimeout(timeoutId) = can cancel a timeout before it triggers
+const timeoutId = setTimeout(() => window.alert("Hello"), 3000);
+clearTimeout(timeoutId);
+
+let timeoutId2;
+
+function startTimer() {
+    timeoutId2 = setTimeout(() => window.alert("Hello"), 3000); //need to declare timeoutId2 so it can be used as a callback to clearTimer
+    console.log("started");
+}
+
+function clearTimer() {
+    clearTimeout(timeoutId2);
+    console.log("stoped");
+}
