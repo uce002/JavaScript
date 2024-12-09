@@ -93,3 +93,17 @@ body {
     font-size: 1.75em;
     font-weight: bold;
 }
+
+/* 53 DIGITAL CLOCK PROGRAM*/
+#clock-container {
+    display: flex;
+    justify-content: center;
+}
+
+#clock {
+    font-family: monospace;
+    font-size: 6.5rem;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+}

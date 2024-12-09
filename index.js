@@ -1727,3 +1727,19 @@ function clearTimer() {
     clearTimeout(timeoutId2);
     console.log("stoped");
 }
+
+
+// 53 DIGITAL CLOCK PROGRAM
+document.getElementById("digitalClock-h1").textContent = "53. Digital Clock Program";
+
+function updateClock() {
+    // get the current time. then each period of time put into a variable, then template literal them together and make this the textContent of the clock
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2, 0); //to add a 0 before any value that needs it to pad it out so it looks like a clock
+    const minutes = now.getMinutes().toString().padStart(2, 0);
+    const seconds = now.getSeconds().toString().padStart(2, 0);
+    const timeString = `${hours}:${minutes}:${seconds}`;
+    document.getElementById("clock").textContent = timeString;
+}
+updateClock();
+setInterval(updateClock, 1000); //update the clock every second
