@@ -918,7 +918,7 @@ function display(element) {
 let feFruits = ["apple", "banana", "orange", "coconut"];
 
 feFruits.forEach(feCaptialise);
-feFruits.forEach(display);
+feFruits.forEach(display2);
 
 function feUppercase(element, index, array) {
     array[index] = element.toUpperCase();
@@ -928,7 +928,7 @@ function feCaptialise(element, index, array) {
     array[index] = element.charAt(0).toUpperCase() + element.slice(1); //for array at index index(it keeps track by itself like i=0; i<length; i++), make element 0 (first letter) uppercase then the rest of the word
 }
 
-function display(element) {
+function display2(element) {
     console.log(element);
 }
 
@@ -1795,3 +1795,18 @@ function update() {
 
     stopwatchDisplay.textContent = `${hours}:${minutes}:${seconds}:${milliseconds}`;
 }
+
+
+// CANT GET THE IMPORT TO WORK
+// 55 ES6 MODULES
+document.getElementById("es6Modules-h1").textContent = "55. ES6 Modules";
+
+// ES6 Module = an external file that contains reusable code that can be imported into other JS files. Write reusable code for many different apps. Can contain variables, classes, functions and more
+// object destructuring 
+// import {es6PI, es6getCircumference, es6getArea} from `mathUti.js`;
+// console.log(es6PI);
+// const es6Circumference = es6getCircumference(10);
+// const es6Area = es6getArea(10);
+
+// console.log(`${es6Circumference.toFixed(2)}cm`);
+// console.log(`${es6Area.toFixed(2)}cm^2`);
