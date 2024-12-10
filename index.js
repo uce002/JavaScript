@@ -1906,7 +1906,7 @@ document.getElementById("dom-h1").textContent = "59. DOM";
 // DOM = DOCUMENT OBJECT MODEL
 // Object that represents the page you see in the web browser and provides the API to interact with it.
 // web browser constructs the DOM when it loads a HTML document and structures all the elements in a tree-like representation
-// JS can acces the DOM dynamically to change the content, structure and style of a webpage
+// JS can acces the DOM dynamically to change the content, structure and style of a webpage e.g. .textContent
 
 document.title = "JavaScript";
 //console.log(document); //will display your html document
@@ -1917,3 +1917,52 @@ const domUsername = " Uce McJuce";
 const welcomeMsg = document.getElementById("dom-h2");
 
 welcomeMsg.textContent += domUsername === "" ? " Guest" : domUsername; //if username is empty say welcome guest else welcome username
+
+
+// 60 ELEMENT SELECTORS
+document.getElementById("elementSelector-h1").textContent = "60. Element Selectors";
+
+// element selectors = methods used to target and manipulate HTML elements. They allow you to select one or multiple HTML elements from the DOM
+
+// 1. document.getElementById()         ELEMENT OR NULL
+// 2. document.getElementsClassName()   HTML COLLECTION // like arrays but less useful i.e. don't have a builtin forEach() method
+// 3. document.getElementsByTagName()   HTML COLLECTION // live. do update automatically in the dom
+// 4. document.querySelector()          FIRST ELEMENT OR NULL
+// 5. document.querySelectorAll()       NODELIST. static, don't update automatically in the dom. do have builtin functions unlike html collections
+
+const selectorH2 = document.getElementById("selector-h2"); //if you misspell selector-h2 it will return null
+selectorH2.style.backgroundColor = "yellow";
+selectorH2.style.textAlign = "center";
+console.log(selectorH2); //returns the HTML of this element including any styles applied here will be displayed as HTML attributes. will only return the shorthand if it is last in the code
+
+const selectorFruits = document.getElementsByClassName("selectorFruits");
+// selectorFruits[0].style.backgroundColor = "red"; //to style individually give the index apple is now red
+// for(let sFruit of selectorFruits) { //let element of HTML collection (essentially an array)
+//     sFruit.style.backgroundColor = "yellow"; //loop through and make each one yellow
+// }
+
+// typecast the HTML collection into an array to use forEach()
+Array.from(selectorFruits).forEach(selFruit => {
+    selFruit.style.backgroundColor = "yellow";
+})
+console.log(selectorFruits);
+
+const h4Elements = document.getElementsByTagName("h4");
+const liElements = document.getElementsByTagName("li");
+
+//h4Elements[1].style.backgroundColor = "yellow";
+for(let h4Element of h4Elements) {
+    h4Element.style.backgroundColor = "yellow";
+}
+Array.from(liElements).forEach(liElement => {
+    liElement.style.backgroundColor = "lightgreen";
+})
+
+const qElement = document.querySelector(".selectorFruits"); //("ul") will highlight the first 3 bullet points. ("li") will highlight beets
+qElement.style.backgroundColor = "orange";
+
+const allFoods = document.querySelectorAll("li");
+allFoods[1].style.backgroundColor = "purple";
+// allFoods.forEach(food => { // nodelists have a forEach() method
+//     food.style.backgroundColor = "pink";
+// })
