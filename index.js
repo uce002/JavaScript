@@ -1810,3 +1810,38 @@ document.getElementById("es6Modules-h1").textContent = "55. ES6 Modules";
 
 // console.log(`${es6Circumference.toFixed(2)}cm`);
 // console.log(`${es6Area.toFixed(2)}cm^2`);
+
+
+// 56 ASYNCHRONOUS CODE
+document.getElementById("asynchronousCode-h1").textContent = "56. Asynchronous Code";
+
+// synchronous = Executes line by line consecutively in a sequential manner. Code that waits for an operation to complete
+// executes line by line. can't move onto task 2 until task 1 is completed
+
+// console.log("task 1");
+// console.log("task 2");
+// console.log("task 3");
+
+// asynchronous = Allows multiple operations to be performed concurrently without waiting. Doesn't block the execution flow and allows the program to continue.
+            //    (I/O operations, network requests, fetching data). anything that takes an undetermined amount of time
+            //    Handled with: Callbacks, Promises, Async/Await
+
+// setTimeout is an e.g. of asynchronous code. It will allow the other tasks to be completed while waiting for it's code to execute after 3 secs
+// setTimeout(() => console.log("Task 1"), 3000);
+// console.log("Task 2");
+// console.log("Task 3");
+// console.log("Task 4");
+
+// if synchronous code has to complete after asynchronous, make it a callback of that function
+function func1(callback) {
+    setTimeout(() => {console.log("Task 1") // with 2 pieces of code now put it in {}
+                      callback()}, 3000); 
+}
+
+function func2() {
+    console.log("Task 2");
+    console.log("Task 3");
+    console.log("Task 4");
+}
+
+func1(func2);
