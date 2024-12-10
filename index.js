@@ -1899,3 +1899,21 @@ function calculate() {
         calculatorDisplay.value = "Error"; // catch the error and display error, you can then clear it
     }
 }
+
+// 59 DOM
+document.getElementById("dom-h1").textContent = "59. DOM";
+
+// DOM = DOCUMENT OBJECT MODEL
+// Object that represents the page you see in the web browser and provides the API to interact with it.
+// web browser constructs the DOM when it loads a HTML document and structures all the elements in a tree-like representation
+// JS can acces the DOM dynamically to change the content, structure and style of a webpage
+
+document.title = "JavaScript";
+//console.log(document); //will display your html document
+//console.dir(document); // directory will return all the properties of the document
+//document.body.style.backgroundColor = "black"; //quick example to change to dark mode, although need to change all text to white
+
+const domUsername = " Uce McJuce";
+const welcomeMsg = document.getElementById("dom-h2");
+
+welcomeMsg.textContent += domUsername === "" ? " Guest" : domUsername; //if username is empty say welcome guest else welcome username
