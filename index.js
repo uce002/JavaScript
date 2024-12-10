@@ -1876,3 +1876,26 @@ document.getElementById("errorHandling-h1").textContent = "57. Error Handling";
 
 // there's another example but i dont see the point as it's just an if statement to check if input is a number or not using try and then catch the error.
 // when making an error use throw new Error("Value must be a number");
+
+
+// 58 CALCULATOR PROGRAM
+document.getElementById("calculator-h1").textContent = "58. Calculator Program";
+
+const calculatorDisplay = document.getElementById("calculatorDisplay");
+
+function appendToDisplay(input) {
+    calculatorDisplay.value += input;
+}
+
+function clearDisplay() {
+    calculatorDisplay.value = "";
+}
+
+function calculate() {
+    try {
+        calculatorDisplay.value = eval(calculatorDisplay.value); // e.g. 4+ returns an error because you need to finish the equation. eval is a built in calculate function
+    }
+    catch(error) {
+        calculatorDisplay.value = "Error"; // catch the error and display error, you can then clear it
+    }
+}
