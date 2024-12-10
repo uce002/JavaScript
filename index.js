@@ -1837,11 +1837,42 @@ function func1(callback) {
     setTimeout(() => {console.log("Task 1") // with 2 pieces of code now put it in {}
                       callback()}, 3000); 
 }
-
 function func2() {
     console.log("Task 2");
     console.log("Task 3");
     console.log("Task 4");
 }
-
 func1(func2);
+
+
+// 57 ERROR HANDLING
+document.getElementById("errorHandling-h1").textContent = "57. Error Handling";
+
+// error = an Object that is created to represent a problem that occurs. Occurs often with user input or establishing a connetion
+// when uncaught, it will interrupt the flow of the program and not execute any code after the error
+
+// try {  } = enclosed code that might potentialy cause an error
+// catch {  } = catch and handle any thrown Errors from try { }
+// finally {  } = (optional) Always executes. used mostly for clean up e.g. close files, close connections, release resources
+
+// try {
+//     console.log(c);
+//     // if you experience errors put them in a try block, then the rest of your code can run and see what is or shouldn't be happening
+//     // NETWORK ERRORS
+//     // PROMISE REJECTION
+//     // SECURITY ERRORS
+// }
+// catch(error) {
+//     console.error(error); // catch and show any errors to make sure the rest of the code works
+// }
+// finally { // if any code doesn't work because of the errors, regardless, make sure the code to close connections etc is executed to avoid anything disastrous
+//           // do any clean up needed, regardless of if an error occurs
+//     // CLOSE FILES
+//     // CLOSE CONNECTIONS
+//     // RELEASE RESOURCES
+//     console.log("This always executes");
+// }
+// console.log("You have reached the end");
+
+// there's another example but i dont see the point as it's just an if statement to check if input is a number or not using try and then catch the error.
+// when making an error use throw new Error("Value must be a number");
