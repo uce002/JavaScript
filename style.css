@@ -242,3 +242,18 @@ body {
     border: 3px solid;
     font-size: 2rem;
 }
+
+/* 63 MOUSE EVENTS*/
+#mouseEventBox {
+    background-color: lightgreen;
+    width: 300px;
+    height: 300px;
+    font-size: 4.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+#mouseEventBtn{
+    font-size: 3rem;
+}

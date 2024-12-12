@@ -2080,3 +2080,33 @@ document.getElementById("olFruits").append(newListItem); //prepend to put coconu
 
 // REMOVE HTML ELEMENT
 // document.getElementById("olFruits").removeChild(newListItem);
+
+
+// 63 MOUSE EVENTS
+document.getElementById("mouseEvents-h1").textContent = "63. Mouse Events";
+
+// eventListener = listen for specific events to create interactive webpages.
+// events: click, mouseover, mouseout.  .addEventListener(event, callback/arrow function) e.g. (click, changeColor)
+const mouseEventBox = document.getElementById("mouseEventBox");
+
+// function changeColor(event) {
+//     //console.log(event) //event is an object given by JS and in this case returns PointerEvent. dont need to call or pass anything in line 2098
+//     event.target.style.backgroundColor = "red"; //target is where you clicked, another JS object given for events
+//     event.target.textContent = "ow"
+// }
+// mouseEventBox.addEventListener("click", changeColor)
+
+mouseEventBox.addEventListener("click", event => {
+    event.target.style.backgroundColor = "red";
+    event.target.textContent = "OUCH 😵";
+});
+
+mouseEventBox.addEventListener("mouseover", event => {
+    event.target.style.backgroundColor = "yellow";
+    event.target.textContent = "Don't do it 😧";
+});
+
+mouseEventBox.addEventListener("mouseout", event => {
+    event.target.style.backgroundColor = "lightgreen";
+    event.target.textContent = "Click me 😀";
+});
