@@ -1951,18 +1951,80 @@ const h4Elements = document.getElementsByTagName("h4");
 const liElements = document.getElementsByTagName("li");
 
 //h4Elements[1].style.backgroundColor = "yellow";
-for(let h4Element of h4Elements) {
-    h4Element.style.backgroundColor = "yellow";
-}
-Array.from(liElements).forEach(liElement => {
-    liElement.style.backgroundColor = "lightgreen";
-})
+// for(let h4Element of h4Elements) {
+//     h4Element.style.backgroundColor = "yellow";
+// }
+// Array.from(liElements).forEach(liElement => {
+//     liElement.style.backgroundColor = "lightgreen";
+// })
 
-const qElement = document.querySelector(".selectorFruits"); //("ul") will highlight the first 3 bullet points. ("li") will highlight beets
-qElement.style.backgroundColor = "orange";
+// const qElement = document.querySelector(".selectorFruits"); //("ul") will highlight the first 3 bullet points. ("li") will highlight beets
+// qElement.style.backgroundColor = "orange";
 
-const allFoods = document.querySelectorAll("li");
-allFoods[1].style.backgroundColor = "purple";
+// const allFoods = document.querySelectorAll("li");
+// allFoods[1].style.backgroundColor = "purple";
 // allFoods.forEach(food => { // nodelists have a forEach() method
 //     food.style.backgroundColor = "pink";
 // })
+
+
+// 61 DOM NAVIGATION
+document.getElementById("domNavigation-h1").textContent = "61. DOM Navigation";
+
+// dom navigation = the process of navigating through the structure of a HTML document using JS
+// html elements include but aren't limited to .firstElementChild   .lastElementChild   .nextElementSibling    .previousElementSibling    .parentElement   .children
+
+// .firstElementChild
+const navElement1 = document.getElementById("navFruits") //"navVeg" "navDesserts" to highlight the firstChildElement of those ul (carrots and cake)
+const firstChild = navElement1.firstElementChild;
+firstChild.style.backgroundColor = "yellow";
+
+// //this would work if there wasn't other ul's in my index.html. select all first children elements of all unordered lists and highlight yellow
+// const ulElements = document.querySelectorAll("ul");
+// ulElements.forEach(ulElement => {
+//     const qsaFirstChild = ulElement.firstElementChild;
+//     qsaFirstChild.style.backgroundColor = "yellow";
+// })
+
+// .lastElementChild
+const navElement2 = document.getElementById("navVeg"); //banana and icecream if you put in "navFruit" or "navDessert"
+const lastChild = navElement2.lastElementChild;
+lastChild.style.backgroundColor = "orange";
+
+// //this would work if there wasn't other ul's in my index.html. select all last children elements of all unordered lists and highlight orange
+// const ulElements2 = document.querySelectorAll("ul");
+// ulElements2.forEach(ulElement => {
+//     const qsaLastChild = ulElement.lastElementChild;
+//     qsaLastChild.style.backgroundColor = "orange";
+// })
+
+// .nextElementSibling 
+// if you select carrots, the next sibling is onions
+const navElement3 = document.getElementById("cake");
+const nextSibling = navElement3.nextElementSibling;
+nextSibling.style.backgroundColor = "red";
+
+//if you select navFruits, the next sibling is navVeg
+// const navElement4 = document.getElementById("navFruits");
+// const nextSibling2 = navElement4.nextElementSibling;
+// nextSibling2.style.backgroundColor = "red";
+
+// .previousElementSibling
+const navElement5 = document.getElementById("pie"); // put "navDessert" it will highlight navVeg
+const prevSibling = navElement5.previousElementSibling;
+prevSibling.style.backgroundColor = "pink";
+
+// .parentElement
+// const navElement6 = document.getElementById("apple");
+// const parent = navElement6.parentElement;
+// parent.style.backgroundColor = "green";
+
+// .childElement
+// const navElement7 = document.getElementById("navVeg");
+// const children = navElement7.children;
+
+// Array.from(children).forEach(child => {
+//     child.style.backgroundColor = "blue";
+// })
+// // a sepeate navElement 8 and use any navfruit, navveg, navdessert. then choose which index you want a separate colour
+// children[1].style.backgroundColor = "white";
