@@ -2090,7 +2090,7 @@ document.getElementById("mouseEvents-h1").textContent = "63. Mouse Events";
 const mouseEventBox = document.getElementById("mouseEventBox");
 
 // function changeColor(event) {
-//     //console.log(event) //event is an object given by JS and in this case returns PointerEvent. dont need to call or pass anything in line 2098
+//     //console.log(event) //event is an object given by JS and in this case returns PointerEvent. dont need to call or pass anything in line 2097
 //     event.target.style.backgroundColor = "red"; //target is where you clicked, another JS object given for events
 //     event.target.textContent = "ow"
 // }
@@ -2109,4 +2109,54 @@ mouseEventBox.addEventListener("mouseover", event => {
 mouseEventBox.addEventListener("mouseout", event => {
     event.target.style.backgroundColor = "lightgreen";
     event.target.textContent = "Click me 😀";
+});
+
+
+// 64 KEY EVENTS
+document.getElementById("keyEvents-h1").textContent = "64. Key Events";
+
+// eventListener = listen for specific events to create interactive webpages.
+// events: keydown, keyup. (press down a key, lift up a key)    (also keydown but can't use this in webpages)
+// document.addEventListener("keydown", event => {
+    //console.log(event); //returns KeyboardEvent
+   //console.log(event.key); //tells you what key was pressed and will keep firing that if you hold it down or just once if you press it once
+//    console.log(`Key down = ${event.key}`);
+// });
+// document.addEventListener("keyup", event => {
+//     console.log(`Key up = ${event.key}`);
+// });
+
+const keyEventBox = document.getElementById("keyEventBox");
+const moveAmount = 10;
+let keyEventX = 0;
+let keyEventY = 0;
+
+// document.addEventListener("keydown", event => {
+//     keyEventBox.textContent = "😧";
+//     keyEventBox.style.backgroundColor = "red";
+// });
+// document.addEventListener("keyup", event => {
+//     keyEventBox.textContent = "😀";
+//     keyEventBox.style.backgroundColor = "lightblue";
+// });
+
+document.addEventListener("keydown", event => {
+    if(event.key.startsWith("Arrow")) {
+        switch(event.key) { //if the key of the event (keydown) matches the case do that code
+            case "ArrowUp":
+                keyEventY -= moveAmount; //essentially going backwards if you're confused
+                break;
+            case "ArrowDown":
+                keyEventY += moveAmount;
+                break;
+            case "ArrowLeft":
+                keyEventX -= moveAmount;
+                break;
+            case "ArrowRight":
+                keyEventX += moveAmount;
+                break;
+        }
+        keyEventBox.style.top = `${keyEventY}px`;
+        keyEventBox.style.left = `${keyEventX}px`;
+    }
 });
