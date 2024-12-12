@@ -269,3 +269,8 @@ body {
     align-items: center;
     position: relative;
 }
+
+/* 65 HIDE/SHOW HTML*/
+#hideBtn {
+    font-size: 2rem;
+}

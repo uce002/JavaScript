@@ -2131,15 +2131,6 @@ const moveAmount = 10;
 let keyEventX = 0;
 let keyEventY = 0;
 
-// document.addEventListener("keydown", event => {
-//     keyEventBox.textContent = "😧";
-//     keyEventBox.style.backgroundColor = "red";
-// });
-// document.addEventListener("keyup", event => {
-//     keyEventBox.textContent = "😀";
-//     keyEventBox.style.backgroundColor = "lightblue";
-// });
-
 document.addEventListener("keydown", event => {
     if(event.key.startsWith("Arrow")) {
         switch(event.key) { //if the key of the event (keydown) matches the case do that code
@@ -2156,7 +2147,32 @@ document.addEventListener("keydown", event => {
                 keyEventX += moveAmount;
                 break;
         }
+        keyEventBox.textContent = "😧";
+        keyEventBox.style.backgroundColor = "red";
         keyEventBox.style.top = `${keyEventY}px`;
         keyEventBox.style.left = `${keyEventX}px`;
+    }
+});
+
+document.addEventListener("keyup", event => {
+        keyEventBox.textContent = "😀";
+        keyEventBox.style.backgroundColor = "lightblue";
+    });
+
+
+// 65 HIDE/SHOW HTML
+document.getElementById("hideShowHTML-h1").textContent = "65. Hide/Show HTML";
+
+const hideBtn = document.getElementById("hideBtn");
+const kermit = document.getElementById("kermit");
+
+hideBtn.addEventListener("click", event => {
+    if(kermit.style.visibility === "hidden") { //visibility retains the space occupied by the image so the button doesn't keep moving up and down. display = "none" doesn't keep this, just gets rid of the image and the space it took up
+        kermit.style.visibility = "visible";
+        hideBtn.textContent = "Hide";
+    } 
+    else {
+        kermit.style.visibility = "hidden";
+        hideBtn.textContent = "Show";
     }
 });
