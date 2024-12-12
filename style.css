@@ -274,3 +274,12 @@ body {
 #hideBtn {
     font-size: 2rem;
 }
+
+/* 66 NODELISTS*/
+.nodelistBtns {
+    font-size: 4rem;
+    margin: 10px;
+    padding: 10px 15px;
+    background-color: hsl(229, 100%, 62%);
+    color: white;
+}

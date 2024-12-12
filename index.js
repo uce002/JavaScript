@@ -2176,3 +2176,56 @@ hideBtn.addEventListener("click", event => {
         hideBtn.textContent = "Show";
     }
 });
+
+
+// 66 NODELISTS
+document.getElementById("nodelists-h1").textContent = "66. Nodelists";
+
+// nodelist = static collection of HTML elements by (id, class, element). can be created using querySelectorAll(). similar to an array but no (map, filter, reduce) but do have forEach()
+// nodelist won't update automatically to reflect changes to the DOM. if you want to remove an element from a nodelist that's in the dom you have to remove it from the dom and the nodelist
+let buttons = document.querySelectorAll(".nodelistBtns"); //can queryselectall button elements by "button" but don't want to
+console.log(buttons);
+
+// add html/css properties to nodelist
+// buttons.forEach(button => {
+//     button.style.backgroundColor = "green";
+//     button.textContent += "🫡";
+// });
+
+// click event listener to nodelist
+// buttons.forEach(button => { //foreach element (button) in nodelist buttons do this
+//     button.addEventListener("click", event => { // when you click on a button do this
+//         event.target.style.backgroundColor = "red"; //event is registered and what was clicked will change red
+//     });
+// });
+
+// mouseover & mouseout event listener to nodelist
+buttons.forEach(button => {
+    button.addEventListener("mouseover", event => {
+        event.target.style.backgroundColor = "hsl(229, 100%, 40%)";
+    })
+});
+buttons.forEach(button => {
+    button.addEventListener("mouseout", event => {
+        event.target.style.backgroundColor = "hsl(229, 100%, 62%)";
+    })
+});
+
+// add an element to nodelist
+// const newBtn = document.createElement("button");
+// newBtn.textContent = "Button 5";
+// newBtn.classList = "nodelistBtns";
+// document.getElementById("nlBtnContainer").append(newBtn);
+// console.log(buttons); //button 5 isn't in the nodelist but is in the dom as it doesn't automaticallty update, you have to manually add it
+
+// buttons.document.querySelectorAll(".nodelistBtns");
+// console.log(buttons); //button 5 is now in nodelist (nodelist has 5 element)
+
+// remove an element from a nodelist and the dom
+buttons.forEach(button => {
+    button.addEventListener("click", event => {
+        event.target.remove();
+        buttons = document.querySelectorAll(".nodelistBtns");
+        console.log(buttons);
+    });
+});
