@@ -230,3 +230,15 @@ body {
 #calculatorKeys .operatorBtn:active {
     background-color: hsl(39, 100%, 50%);
 }
+
+/* 62 ADD & CHANGE HTML*/
+.box {
+    border: 3px solid;
+    width: 100%;
+    height: 125px;
+}
+
+#olFruits {
+    border: 3px solid;
+    font-size: 2rem;
+}

@@ -2028,3 +2028,55 @@ prevSibling.style.backgroundColor = "pink";
 // })
 // // a sepeate navElement 8 and use any navfruit, navveg, navdessert. then choose which index you want a separate colour
 // children[1].style.backgroundColor = "white";
+
+
+// 62 ADD & CHANGE HTML
+document.getElementById("addChangeHTML-h1").textContent = "62. Add & Change HTML";
+// e.g. 1 <h1>
+
+// STEP 1 CREATE THE ELEMENT
+const newH1 = document.createElement("h1")
+
+// STEP 2 ADD ATTRIBUTES/PROPERTIES
+newH1.textContent = "Uce likes pizza";
+newH1.id = "myH1";
+newH1.style.color = "red";
+newH1.style.textAlign = "center";
+
+// STEP 3 APPEND ELEMENT TO DOM
+document.getElementById("box1").append(newH1); // prepend puts it before any other code/elements, it's the first child of box1. append puts it at the end/bottom. it's the last child of box1
+
+// to put h1 inbetween box1 and box2
+// const box2 = document.getElementById("box2");
+// document.body.insertBefore(newH1, box2) //insertBefore(new element, current element)
+
+// select all elements with class of box, then use index to put h1 before a certain box
+// const boxes = document.querySelectorAll(".box");
+// document.body.insertBefore(newH1, boxes[4]);
+
+// REMOVE HTML ELEMENT
+// document.getElementById("box1").removeChild(newH1); //can do document.body.removeChild if you want to get rid of one or all h1 elements within the body for example
+
+// e.g. 2 <li>
+
+// STEP 1 CREATE THE ELEMENT
+const newListItem = document.createElement("li");
+
+// STEP 2 ADD ATTRIBUTES/PROPERTIES
+newListItem.textContent = "coconut";
+newListItem.id = "coconut";
+newListItem.style.fontWeight = "bold";
+newListItem.style.backgroundColor = "lightgreen";
+
+// STEP 3 APPEND ELEMENT TO DOM
+document.getElementById("olFruits").append(newListItem); //prepend to put coconut at 1
+
+// const orange = document.getElementById("olOrange");
+// document.getElementById("olFruits").insertBefore(newListItem, orange); //puts coconut at number 2. to put it a 3 use olBanana
+
+// if there was no id's or classes do this
+// const listItems = document.querySelectorAll("#olFruits li") //get all list items in the ordered list olFruits
+// document.getElementById("olFruits").insertBefore(newListItem, listItems[0]);
+
+// REMOVE HTML ELEMENT
+// document.getElementById("olFruits").removeChild(newListItem);
