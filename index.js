@@ -2229,3 +2229,63 @@ buttons.forEach(button => {
         console.log(buttons);
     });
 });
+
+
+// 67 CLASSLIST
+document.getElementById("classList-h1").textContent = "67. classList";
+
+// classList = element property in JS used to interact with an element's list of classes (CSS classes). allows you to make reusable classes for many elements acrss your webpage
+// add()    remove()    toggle(remove if present, add if not)    replace(oldClass, newClass)    contains()
+const classListBtn = document.getElementById("classListBtn");
+classListBtn.classList.add("enabled"); //added .enabled class to the button through JS
+
+classListBtn.addEventListener("mouseover", event => {
+    event.target.classList.add("hover");
+});
+classListBtn.addEventListener("mouseout", event => {
+    event.target.classList.remove("hover");
+});
+
+//toggle works the same as above
+// classListBtn.addEventListener("mouseover", event => {
+//     event.target.classList.toggle("hover");
+// });
+// classListBtn.addEventListener("mouseout", event => {
+//     event.target.classList.toggle("hover");
+// });
+
+classListBtn.addEventListener("click", event => {
+    if(event.target.classList.contains("disabled")) { //contains. if the buttons classList contains disabled (button is grey) and you click it angry face
+        event.target.textContent += "🤬";
+    } else {
+        event.target.classList.replace("enabled", "disabled"); //replace enabled with disabled and change the colour of the button
+    }
+});
+
+// use classlists with nodelists
+let clBtns = document.querySelectorAll(".classlistBtns");
+
+clBtns.forEach(button => {
+    button.classList.add("enabled");
+});
+
+clBtns.forEach(button => {
+    button.addEventListener("mouseover", event => {
+        event.target.classList.toggle("hover");
+    });
+});
+clBtns.forEach(button => {
+    button.addEventListener("mouseout", event => {
+        event.target.classList.toggle("hover");
+    });
+});
+
+clBtns.forEach(button => {
+    button.addEventListener("click", event => {
+        if(event.target.classList.contains("disabled")) { //contains. if the buttons classList contains disabled (button is grey) and you click it angry face
+            event.target.textContent += "🤬";
+        } else {
+        event.target.classList.replace("enabled", "disabled");
+    }
+    });
+});

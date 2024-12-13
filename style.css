@@ -283,3 +283,24 @@ body {
     background-color: hsl(229, 100%, 62%);
     color: white;
 }
+
+/* 67 CLASSLISTS*/
+#classListBtn, .classlistBtns {
+    font-size: 4rem;
+    margin: 10px;
+    border-radius: 5px;
+    padding: 10px 15px;
+}
+
+.enabled { /* apply this class to the button using JS*/
+    background-color: hsl(240, 72%, 41%);
+    color: white;
+}
+.hover {
+    box-shadow: 0 0 10px black;
+    font-weight: bold;
+}
+.disabled {
+    background-color: rgb(192, 192, 192);
+    color: rgb(0, 0, 0);
+}
