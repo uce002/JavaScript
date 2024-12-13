@@ -2289,3 +2289,59 @@ clBtns.forEach(button => {
     }
     });
 });
+
+
+// 68 ROCK PAPER SCISSORS
+document.getElementById("rps-h1").textContent = "68. Rock Paper Scissors";
+
+const choices = ["rock", "paper", "scissors"];
+const playerDisplay = document.getElementById("playerDisplay");
+const cpuDisplay = document.getElementById("cpuDisplay");
+const resultDisplay = document.getElementById("resultDisplay");
+const playerScoreDisplay = document.getElementById("playerScoreDisplay");
+const cpuScoreDisplay = document.getElementById("cpuScoreDisplay");
+
+let playerScore = 0;
+let cpuScore = 0;
+
+function playGame(playerChoice) {
+    const cpuChoice = choices[Math.floor(Math.random() * 3)]; // will be random number from 0, 1, 2
+    let result = "";
+
+    if(playerChoice === cpuChoice) {
+        result = "It's a tie";
+    }
+    else {
+        switch(playerChoice) { //if player chooses rock and cpu chooses scissors you win. line 2306 both chose rock so it's a tie so the next thing in the ternary operator is you lose because cpu chose paper
+            case "rock":
+                result = (cpuChoice === "scissors") ? "You win" : "You lose";
+                break;
+            case "paper": // if you choose paper and cpu choose rock you win otherwise cpu chose scissors so you lose or line 2036 would happen first if it chose paper making a tie
+                result = (cpuChoice === "rock") ? "You win" : "You lose";
+                break;
+            case "scissors":
+                result = (cpuChoice === "paper") ? "You win" : "You lose";
+                break;
+        }
+    }
+    playerDisplay.textContent = `player: ${playerChoice}`;
+    cpuDisplay.textContent = `cpu: ${cpuChoice}`;
+    resultDisplay.textContent = result;
+
+    //remove the classlists to revert text colour back to normal after each game
+    resultDisplay.classList.remove("greenText", "redText");
+
+    //classlist to add green or red text whether you won or lost
+    switch(result) {
+        case "You win":
+            resultDisplay.classList.add("greenText");
+            playerScore++;
+            playerScoreDisplay.textContent = playerScore;
+            break;
+        case "You lose":
+            resultDisplay.classList.add("redText");
+            cpuScore++;
+            cpuScoreDisplay.textContent = cpuScore;
+            break;
+    }
+}

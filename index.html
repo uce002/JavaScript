@@ -449,6 +449,28 @@
     <button class="classlistBtns">Button 4</button>
     <br> <hr>
 
+    <!-- 68 ROCK PAPER SCISSORS-->
+    <h1 id="rps-h1"></h1>
+    <div id="rpsProgam">
+        <div class="choices">
+            <button onclick="playGame(`rock`)">👊</button>
+            <button onclick="playGame(`paper`)">✋</button>
+            <button onclick="playGame(`scissors`)">✌️</button>
+        </div>
+
+        <div id="playerDisplay">Player: </div>
+        <div id="cpuDisplay">CPU: </div>
+        <div id="resultDisplay"></div>
+
+        <div class="scoreDisplay">Player score: 
+            <span id="playerScoreDisplay">0</span>
+        </div>
+        <div class="scoreDisplay">CPU score: 
+            <span id="cpuScoreDisplay">0</span>
+        </div>
+    </div>
+    <br> <hr>
+
     <!-- type="module" is supposed to go in the script but I can't get it to work-->
     <script src="index.js"> 
     </script> <!-- keep at the bottom of body so if there's an error in the js file, at least the HTML will run and show-->
