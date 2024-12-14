@@ -2345,3 +2345,42 @@ function playGame(playerChoice) {
             break;
     }
 }
+
+
+// 69 IMAGE SLIDER
+document.getElementById("imageSlider-h1").textContent = "69. Image Slider";
+
+// make a nodelist for the image (querySelectorAll returns a nodelist)
+const slides = document.querySelectorAll(".slides img");
+let slideIndex = 0;
+let intervalId = null;
+
+initialiseSlider();
+
+function initialiseSlider() { //the first image
+    if(slides.length > 0) {//if there is an image in the nodelist of images, show it
+        slides[slideIndex].classList.add("displaySlide"); //slides = lambo images nodelist at index 0, display as a block i.e. show not hide
+        intervalId = setInterval(nextSlide, 5000); //after 5 seconds move to the next image and display the next slide
+    }
+}
+function showSlide(index) {
+    if(index >= slides.length) {
+        slideIndex = 0; //if you go past the 3rd image reset to the begining
+    }
+    else if (index < 0) {  //if you press back when you're on index 0 (the first image) go to the last image
+        slideIndex = slides.length - 1;
+    }
+    slides.forEach(slide => {
+        slide.classList.remove("displaySlide"); //for each slide in the nodelist, hide it then show the next one
+    });
+    slides[slideIndex].classList.add("displaySlide");
+}
+function prevSlide() {
+    clearInterval(intervalId); //clear interval timer so it doesn't keep moving forward
+    slideIndex--;
+    showSlide(slideIndex);
+}
+function nextSlide() {
+    slideIndex++; //move to the next slide
+    showSlide(slideIndex); //show the next (that) slide
+}

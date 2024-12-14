@@ -343,3 +343,32 @@ body {
 .greenText, #playerScoreDisplay {
     color: lightgreen;
 }
+
+/* 69 IMAGE SLIDER*/
+.slider {
+    position: relative;
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+}
+.slider img {
+    width: 100%;
+    display: none;
+}
+img.displaySlide {
+    display: block;
+}
+.slider button {
+    position: absolute;
+    top: 50%; /*halfway down the image (its parent)*/
+    transform: translateY(-50%); /*then half of the button upwards as it wasn't fully in the middle*/
+    font-size: 2rem;
+    cursor: pointer;
+}
+/*align button left and right*/
+.prev {
+    left: 0;
+}
+.next {
+    right: 0;
+}
