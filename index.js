@@ -2431,7 +2431,61 @@ document.getElementById("promises-h1").textContent = "71. Promises";
 // 3. take out the trash
 
 //with this being asynchronous code it has to be completed in a certain order, if not the reject won't let the code move on
-function walkDog2() {
+// function walkDog2() {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             const dogWalked = true;
+            
+//             if(dogWalked) {
+//                 resolve("You walk the dog"); //completion message when the promise resolves
+//             } else {
+//                 reject("You DIDN'T walk the dog");
+//             }
+//         }, 1500);
+//     });
+// }
+// function cleanKitchen2() {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             const kitchenCleaned = true;
+            
+//             if(kitchenCleaned) {
+//                 resolve("You clean the kitchen");
+//             } else {
+//                 reject("You DIDN'T clean the kitchen");
+//             }
+//         }, 2500);
+//     });
+// }
+// function takeOutTrash2() {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             const trashTakenOut = false;
+            
+//             if(trashTakenOut) {
+//                 resolve("You take out the trash");
+//             } else {
+//                 reject("You DIDN'T take out the trash");
+//             }
+//         }, 500);
+//     });
+// }
+// //method chaining
+// walkDog2().then(value => {console.log(value); return cleanKitchen2()})
+//           .then(value => {console.log(value); return takeOutTrash2()})
+//           .then(value => {console.log(value); console.log("You finished all the chores")}) //the value is "you walk the dog", pass as a parameter then print it
+//           .catch(error => console.error(error)); //catch the error so its not uncaught 
+
+
+// 72 ASYNC/AWAIT
+document.getElementById("asyncAwait-h1").textContent = "72. Async/Await";
+
+// async/await = Async = makes a function return a promise
+            //   Await = makes an async function wait for a promise
+// allows you to write asynchronous code in a synchronous manner. Async doesn't have to resolve or reject parameters. everything afer Await is placed in an event queue
+
+// using async and await together you dont need to resolve and reject code and dont need to use all the .then chains
+function walkDog3() {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             const dogWalked = true;
@@ -2444,7 +2498,7 @@ function walkDog2() {
         }, 1500);
     });
 }
-function cleanKitchen2() {
+function cleanKitchen3() {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             const kitchenCleaned = true;
@@ -2457,10 +2511,10 @@ function cleanKitchen2() {
         }, 2500);
     });
 }
-function takeOutTrash2() {
+function takeOutTrash3() {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            const trashTakenOut = false;
+            const trashTakenOut = true;
             
             if(trashTakenOut) {
                 resolve("You take out the trash");
@@ -2470,8 +2524,22 @@ function takeOutTrash2() {
         }, 500);
     });
 }
-//method chaining
-walkDog2().then(value => {console.log(value); return cleanKitchen2()})
-          .then(value => {console.log(value); return takeOutTrash2()})
-          .then(value => {console.log(value); console.log("You finished all the chores")}) //the value is "you walk the dog", pass as a parameter then print it
-          .catch(error => console.error(error)); //catch the error so its not uncaught 
+
+async function doChores() {
+    try {
+        const walkDogResult = await walkDog3(); //wait for the promise rejection or resolve
+        console.log(walkDogResult); //print all chores in a synchronous manner, line by line
+    
+        const cleanKitchenResult = await cleanKitchen3();
+        console.log(cleanKitchenResult);
+    
+        const takeOutTrashResult = await takeOutTrash3();
+        console.log(takeOutTrashResult);
+    
+        console.log("You finished all the chores");
+    }
+    catch(error) {
+        console.error(error);
+    }
+}
+doChores();
