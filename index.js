@@ -2384,3 +2384,94 @@ function nextSlide() {
     slideIndex++; //move to the next slide
     showSlide(slideIndex); //show the next (that) slide
 }
+
+
+// 70 CALLBACK HELL
+document.getElementById("callbackHell-h1").textContent = "70. Callback Hell";
+
+// callback hell = situation in JS where callbacks are nested within other callbacks to the degree where the code is difficult to read. 
+// old pattern to handle asynchronous functions. use promises + async/await to avoid callback hell
+// usually 5 or more callbacks within each other is too much and callback hell. there is an example but i dont want to do it
+// function walkDog(callback) {
+//     setTimeout(() => {
+//         console.log("You walk the dog");
+//         callback();
+//     }, 1500);
+// }
+// function cleanKitchen(callback) {
+//     setTimeout(() => {
+//         console.log("You clean the kitchen");
+//         callback();
+//     }, 2500);
+// }
+// function takeOutTrash(callback) {
+//     setTimeout(() => {
+//         console.log("You take out the trash");
+//         callback();
+//     }, 500);
+// }
+// //callback hell
+// walkDog(() => {
+//     cleanKitchen(() => {
+//         takeOutTrash(() => console.log("You finished all the chores."))
+//     });
+// });
+
+
+// 71 PROMISES
+document.getElementById("promises-h1").textContent = "71. Promises";
+
+// promise = an object that manages asynchronous operations. wrap a promise object around {asynchronous code}.
+// a promise promises to return a value, it will first be pending then either be resolved if completed or rejected if failed
+// new Promise(resolve, reject) => {asynchronous code}
+
+// do these chores in order
+// 1. walk the dog
+// 2. clean the kitchen
+// 3. take out the trash
+
+//with this being asynchronous code it has to be completed in a certain order, if not the reject won't let the code move on
+function walkDog2() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const dogWalked = true;
+            
+            if(dogWalked) {
+                resolve("You walk the dog"); //completion message when the promise resolves
+            } else {
+                reject("You DIDN'T walk the dog");
+            }
+        }, 1500);
+    });
+}
+function cleanKitchen2() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const kitchenCleaned = true;
+            
+            if(kitchenCleaned) {
+                resolve("You clean the kitchen");
+            } else {
+                reject("You DIDN'T clean the kitchen");
+            }
+        }, 2500);
+    });
+}
+function takeOutTrash2() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const trashTakenOut = false;
+            
+            if(trashTakenOut) {
+                resolve("You take out the trash");
+            } else {
+                reject("You DIDN'T take out the trash");
+            }
+        }, 500);
+    });
+}
+//method chaining
+walkDog2().then(value => {console.log(value); return cleanKitchen2()})
+          .then(value => {console.log(value); return takeOutTrash2()})
+          .then(value => {console.log(value); console.log("You finished all the chores")}) //the value is "you walk the dog", pass as a parameter then print it
+          .catch(error => console.error(error)); //catch the error so its not uncaught 
