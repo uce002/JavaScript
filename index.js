@@ -2543,3 +2543,73 @@ async function doChores() {
     }
 }
 doChores();
+
+
+// 73 JSON FILES
+document.getElementById("jsonFiles-h1").textContent = "73. JSON Files";
+
+// JSON = (JavaScript Object Notation) data-interchange format used for exchanging data between a server and a web application. JSON files are usually an object {key:value} or an array of values [value1, value2, value3] or an array of object [{}. {}, {}]
+// JSON is one long string to represent the array/object
+// JSON.stringify() = converts a JS object to a JSON string
+// JSON.parse() = converts a JSON string to a JS object
+
+const names = ["Spongebob", "Patrick", "Squidward", "Sandy"];
+const person = {
+    "name": "Spongebob",
+    "age": 30,
+    "isEmployed": true,
+    "hobbies": ["jellyfishing", "karate", "cooking"]
+};
+const people = [{
+    "name": "Spongebob",
+    "age": 30,
+    "isEmployed": true
+},
+{
+    "name": "Patrick",
+    "age": 34,
+    "isEmployed": false
+},
+{
+    "name": "Squidward",
+    "age": 50,
+    "isEmployed": true
+},
+{
+    "name": "Sandy",
+    "age": 27,
+    "isEmployed": false
+}];
+
+//prints all the code of each variable with no spaces but all the [] {} but not the ;
+const jsonStringNames = JSON.stringify(names);
+const jsonStringPerson = JSON.stringify(person);
+const jsonStringPeople = JSON.stringify(people);
+// console.log(jsonStringNames);
+// console.log(jsonStringPerson);
+// console.log(jsonStringPeople);
+
+//to make them into strings surround with `` but not the ; otherwise they wont be separate
+const jsonNames = `["Spongebob", "Patrick", "Squidward", "Sandy"]`;
+const jsonPerson = `{"name": "Spongebob", "age": 30, "isEmployed": true, "hobbies": ["jellyfishing", "karate", "cooking"]}`;
+const jsonPeople = `[{"name": "Spongebob","age": 30,"isEmployed": true},
+                {"name": "Patrick","age": 34,"isEmployed": false},
+                {"name": "Squidward","age": 50,"isEmployed": true},
+                {"name": "Sandy","age": 27,"isEmployed": false}]`;
+
+const parsedNames = JSON.parse(jsonNames);
+const parsedPerson = JSON.parse(jsonPerson);
+const parsedPeople = JSON.parse(jsonPeople);
+// console.log(parsedNames);
+// console.log(parsedPerson);
+// console.log(parsedPeople);
+
+fetch("/person.json")
+    .then(response => response.json()) //convert to json i.e. you can fetch and convert any file to json
+    .then(value => console.log(value)) //print the object of person (spongebob)
+
+// print each object separately. iterate through and print using foreach
+fetch("/people.json")
+    .then(response => response.json())
+    .then(values => values.forEach(value => console.log(value))) //if you want specific properties add .name after value
+    .catch(error => console.error(error)); //catch any errors if the json file cant be fetched
