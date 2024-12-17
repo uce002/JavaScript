@@ -2613,3 +2613,64 @@ fetch("/people.json")
     .then(response => response.json())
     .then(values => values.forEach(value => console.log(value))) //if you want specific properties add .name after value
     .catch(error => console.error(error)); //catch any errors if the json file cant be fetched
+
+
+// 74 FETCH DATA FROM AN API
+document.getElementById("fetchDataAPI-h1").textContent = "74. Fetch Data from an API";
+
+// fetch = function used for making HTTP requests to fetch resources (JSON style data, images, files)
+// simplifies asynchronous data fetching in JS and used for interacting with APIs to retrieve and send data asynchronously over the web
+// fetch(url, {options})
+
+fetch("https://pokeapi.co/api/v2/pokemon/raichu") //either rejects or resolves so then do it, if not catch the error
+    .then(response => { //fetch returns response object
+        if(!response.ok) {
+            throw new Error("Could not fetch resource"); //throw error if ok is false. ok is a variable in the pokemon object that says whether it can find that pokemon or not. it returns error 404 but we're throwing this error and catching it
+        }
+        return response.json(); //convert the raichu (any pokemon) object into json
+    })
+    .then(data => console.log(data.name)) //get the name from the data object in the raichu object
+    .catch(error => console.error(error));
+
+
+// fetchData();
+// // using async/await to fetch data. async makes a function return a promise, await makes an async functions wait for a promise
+// async function fetchData() {
+//     try { //fetch returns response object. await the promise returned by fetch
+//         const response = await fetch("https://pokeapi.co/api/v2/pokemon/chimchar");
+
+//         //when the promise from fetch resolves, need to see if the response is ok (i.e. it found the pokemon)
+//         if(!response.ok) {
+//             throw new Error("Could not fetch resource");
+//         } 
+
+//         const data = await response.json();
+//         console.log(data.name);
+//     }
+//     catch(error) {
+//         console.error(error);
+//     }
+// }
+
+fetchData2();
+async function fetchData2() {
+    try {
+        const pokemonName = document.getElementById("pokemonName").value.toLowerCase();
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
+
+        //when the promise from fetch resolves, need to see if the response is ok (i.e. it found the pokemon)
+        if(!response.ok) {
+            throw new Error("Could not fetch resource");
+        } 
+
+        const data = await response.json();
+        const pokemonSprite = data.sprites.front_default;
+        const imgElement = document.getElementById("pokemonSprite");
+
+        imgElement.src = pokemonSprite;
+        imgElement.style.display = "block";
+    }
+    catch(error) {
+        console.error(error);
+    }
+}
