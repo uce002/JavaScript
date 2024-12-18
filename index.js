@@ -2674,3 +2674,103 @@ async function fetchData2() {
         console.error(error);
     }
 }
+
+
+// 75 WEATHER APP PROJECT
+document.getElementById("weatherApp-h1").textContent = "76. Weather App Project";
+
+const weatherForm = document.querySelector(".weatherForm"); 
+const cityInput = document.querySelector(".cityInput");
+const card = document.querySelector(".card"); //return first element (thats what queryselector does)
+const apiKey = "2a8bf7cf8093ace3539887a7eee5905f";
+
+weatherForm.addEventListener("submit", async event => { //put async here so you can use await on line 2692
+    event.preventDefault(); //prevent it refreshing
+    const city = cityInput.value;
+    if(city) { //if a city has been provided try the code and catch any errors with the same error message
+        try {
+            const weatherData = await getWeatherData(city); //the function getWeatherData will take a city input and this will be stored in weatherData const
+            displayWeatherInfo(weatherData); //weatherData (the input) will be displayed
+        }
+        catch(error) {
+            console.error(error);
+            displayError(error);
+        }
+    } else {
+        displayError("Please enter a city"); //if theres no city/nothing inputted display the error
+    }
+});
+
+async function getWeatherData(city) {
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`; //this is the apiUrl pass in the city any my api key
+    const response = await fetch(apiUrl); //fetch the api and await for the promise to reject or resolve
+    console.log(response);
+
+    //if input is not a city throw erro, else return the response and convert to a json object
+    if(!response.ok) {
+        throw new Error("Could not fetch weather data");
+    } 
+    return await response.json();
+}
+
+function displayWeatherInfo(data) { //object and array destructuring to get the data thats in objects and separate them into one object (data). i.e. get the desc and id variables from the weather array of objects from the site, get the city from the name object etc
+    const {name: city, main: {temp, humidity}, weather: [{description, id}]} = data;
+
+    card.textContent = ""; //reset text content if there was anything displayed before this
+    card.style.display = "flex";
+
+    const cityDisplay = document.createElement("h2");
+    const tempDisplay = document.createElement("p");
+    const humidityDisplay = document.createElement("p");
+    const descDisplay = document.createElement("p");
+    const weatherEmojiDisplay = document.createElement("p");
+
+    cityDisplay.textContent = city;
+    tempDisplay.textContent = `${(temp - 273.15).toFixed(1)}°C`;
+    humidityDisplay.textContent = `Humidity: ${humidity}%`;
+    descDisplay.textContent = description;
+    weatherEmojiDisplay.textContent = getWeatherEmoji(id);
+
+    cityDisplay.classList.add("cityDisplay");
+    tempDisplay.classList.add("tempDisplay");
+    humidityDisplay.classList.add("humidityDisplay");
+    descDisplay.classList.add("descDisplay");
+    weatherEmojiDisplay.classList.add("weatherEmoji");
+
+    card.appendChild(cityDisplay);
+    card.appendChild(tempDisplay);
+    card.appendChild(humidityDisplay);
+    card.appendChild(descDisplay);
+    card.appendChild(weatherEmojiDisplay);
+}
+
+function getWeatherEmoji(weatherId) {
+    switch(true) {
+        case (weatherId >= 200 && weatherId < 300):
+            return "⛈️";
+        case (weatherId >= 300 && weatherId < 400):
+            return "🌧️";
+        case (weatherId >= 500 && weatherId < 600):
+            return "⛈️🌧️";
+        case (weatherId >= 600 && weatherId < 700):
+            return "❄️";
+        case (weatherId >= 700 && weatherId < 800):
+            return "😶‍🌫️";
+        case (weatherId == 800):
+            return "☀️";
+        case (weatherId >= 801 && weatherId < 810):
+            return "☁️";
+        default:
+            return "❓";
+    }
+}
+
+function displayError(message) { //function that takes a message parameter
+    const errorDisplay = document.createElement("p"); //make a new p element
+    errorDisplay.textContent = message; //in that p element display the message from line 2701
+    errorDisplay.classList.add("errorDisplay");
+
+    card.textContent = ""; //the card wont display anything other than the error message
+    card.style.display = "flex"; //display the error message as a 
+    card.appendChild(errorDisplay); //append this p element as a child to the end of the card div
+}
